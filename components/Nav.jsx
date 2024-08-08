@@ -13,11 +13,11 @@ const links = [
     path: "/services",
   },
   {
-    name: "educação",
+    name: "formação",
     path: "/resume",
   },
   {
-    name: "work",
+    name: "projetos",
     path: "/work",
   },
   {
