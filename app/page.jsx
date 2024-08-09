@@ -3,13 +3,16 @@ import { FiDownload } from "react-icons/fi"
 
 // components
 import Socials from "@/components/Socials"
+import Photo from "@/components/Photo"
+import Stats from "@/components/Stats"
 
 const page = () => {
   return (
     <section>
       <div className="container mx-auto h-full">
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
-          <div className="text-center xl:text-left">
+
+          <div className="text-center xl:text-left order-2 xl:order-none">
             <span className="text-xl">Web Developer</span>
             <h1 className="h1 mb-6">
               Hello I'm <br /> <span className="text-accent">Albérico Jr.</span>
@@ -41,9 +44,12 @@ const page = () => {
               </div>
             </div>
           </div>
-          <div>text</div>
+          <div className="order-1 xl:order-none mb-8 xl:mb-0">
+            <Photo/>
+          </div>
         </div>
       </div>
+      <Stats/>
     </section>
   )
 }
@@ -52,4 +58,4 @@ export default page
 
 
 // https://youtu.be/dImgZ_AH7uA?si=OfaGO0HSF-0GDyZ_
-// 1:02:03
+// 1:19:55
