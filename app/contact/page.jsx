@@ -57,9 +57,9 @@ const Contact = () => {
               </p>
               {/* input */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Input type="text" name="firstname" placeholder="Primeiro Nome" />
+                <Input type="text" name="firstname" placeholder="Primeiro Nome" required/>
                 <Input type="text" name="lastname" placeholder="Sobrenome" />
-                <Input type="email" name="email" placeholder="E-mail" />
+                <Input type="email" name="email" placeholder="E-mail" required/>
                 <Input type="phone" name="phone" placeholder="Número de telefone" />
               </div>
               {/* select */}
