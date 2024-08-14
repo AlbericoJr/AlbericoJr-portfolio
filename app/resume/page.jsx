@@ -144,7 +144,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@radix
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { motion } from "framer-motion"
 
-const Formacao = () => {
+const Resume = () => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -280,4 +280,4 @@ const Formacao = () => {
   )
 }
 
-export default Formacao
+export default Resume
