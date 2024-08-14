@@ -17,33 +17,33 @@ import WorkSliderBtns from "@/components/WorkSliderBtns";
 const projects =[
   {
     num: "01",
-    category: "frontend",
+    category: "front-end",
     title: "GYM Academy",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, modi blanditiis! ",
+    description: "Este projeto é um site desenvolvido para a academia GYM, com o objetivo de promover seus serviços e facilitar o acesso às informações essenciais para seus clientes.",
     stack: [{name: "Rect.js"}, {name: "Tailwind.css"}],
-    image: "/assets/work/GYM.png",
-    live: "",
-    github: "",
+    image: "/assets/work/GYM-academy.png",
+    live: "https://gym-academia.vercel.app/",
+    github: "https://github.com/AlbericoJr/GYM",
   },
   {
     num: "02",
     category: "front-end",
-    title: "project 2",
-    description: "Projeto realizado através de estudos e inspirado em projetos realizados anteriormente.  ",
-    stack: [{name: "Next.js"}, {name: "Tailwind.css"}, {name: "Node.js"}],
-    image: "/assets/work/spider-man.png",
-    live: "",
-    github: "",
+    title: "Spider Man 2",
+    description: "Projeto realizado através de estudos e inspirado no jogo Spider Man. O projeto foi feito para mostrar como utilizar o HTML e o CSS para criar um site responsível e moderno.",
+    stack: [{name: "HTML"}, {name: "CSS"}],
+    image: "/assets/work/spider-man-2.png",
+    live: "https://spider-man-rho-two.vercel.app/",
+    github: "https://github.com/AlbericoJr/SPIDER-MAN",
   },
   {
     num: "03",
-    category: "fullstack",
-    title: "project 3",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, modi blanditiis! ",
-    stack: [{name: "Next.js"}, {name: "Tailwind.css"}],
-    image: "/assets/work/thumb3.png",
-    live: "",
-    github: "",
+    category: "front-end",
+    title: "Gpt",
+    description: "Utilizo as mais recentes tecnologias, como o ChatGPT, para construir soluções inovadoras e personalizadas. Meus projetos exploram as possibilidades da inteligência artificial para transformar ideias em realidade.",
+    stack: [{name: "React.js"}, {name: "Css"}],
+    image: "/assets/work/gpt.png",
+    live: "https://hilarious-tartufo-d8cc6d.netlify.app/",
+    github: "https://github.com/AlbericoJr/Gpt",
   },
 ]
 
@@ -100,7 +100,7 @@ const Work = () => {
               {/* buttons */}
               <div className="flex items-center gap-4">
                 {/* live project button */}
-                <Link href={project.live}>
+                <Link href={project.live} target="_blank">
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
                       <TooltipTrigger className="w-[70px] h-[78px] rounded-full bg-white/5 flex justify-center items-center group">
@@ -113,7 +113,7 @@ const Work = () => {
                   </TooltipProvider>
                 </Link>
                 {/* github project button */}
-                <Link href={project.github}>
+                <Link href={project.github} target="_blank">
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
                       <TooltipTrigger className="w-[70px] h-[78px] rounded-full bg-white/5 flex justify-center items-center group">

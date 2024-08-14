@@ -19,9 +19,7 @@ const page = () => {
             </h1>
             <p className="max-w-[500px] mb-9 text-white/80">
               Sou web Developer, cursando a graduação em Sistema de informação,
-              com experiência em administração de software, com habilidade em
-              HTML, CSS, JavaScript, Bootstrap, Sass, Tailwind CSS, React,
-              Python e UX/UI Design.
+              com experiência em administração de software, com habilidade em HTML, CSS, JavaScript, React.js e outras tecnologias.
             </p>
             {/* btn socials */}
             <div className="flex flex-col xl:flex-row items-center gap-8">
@@ -55,7 +53,3 @@ const page = () => {
 }
 
 export default page
-
-
-// https://youtu.be/dImgZ_AH7uA?si=OfaGO0HSF-0GDyZ_
-// 1:19:55
