@@ -1,31 +1,42 @@
 "use client"
 
-import {motion} from "framer-motion";
-import  Image  from "next/image"
+import { motion } from "framer-motion"
+import Image from "next/image"
 
 const Photo = () => {
   return (
     <div className="w-full h-full relative">
-      <motion.div 
-        initial={{opacity: 0}} 
+      <motion.div
+        initial={{ opacity: 0 }}
         animate={{
           opacity: 1,
-          transition: {delay: 2, duration: 0.4, ease: "easeIn"}
+          transition: { delay: 2, duration: 0.4, ease: "easeIn" },
         }}
       >
         {/* image */}
         <motion.div
-          initial={{opacity: 0}} 
+          initial={{ opacity: 0 }}
           animate={{
             opacity: 1,
-            transition: {delay: 2.4, duration: 0.4, ease: "easeInOut"}
+            transition: { delay: 2.4, duration: 0.4, ease: "easeInOut" },
           }}
-          className="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-lighten absolute">
-          <Image src="/assets/albericojr.png" priority quality={100} fill alt="Alberico Jr" className="object-contain" />
+          className="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-lighten absolute"
+        >
+          <Image
+            src="/assets/albericojr.png"
+            priority
+            quality={100}
+            fill
+            sizes="(max-width: 768px) 100vw,
+                  (max-width: 1200px) 50vw,
+                  33vw"
+            alt="Alberico Jr"
+            className="object-contain"
+          />
         </motion.div>
 
         {/* circulo */}
-        <motion.svg 
+        <motion.svg
           className="w-[300px] xl:w-[506px] h-[300px] xl:h-[506px]"
           fill="transparent"
           viewBox=" 0 0 506 506"
@@ -39,7 +50,7 @@ const Photo = () => {
             strokeWidth="4"
             strokeLinecap="round"
             strokeLinejoin="round"
-            initial={{strokeDasharray: "24 10 0 0"}}
+            initial={{ strokeDasharray: "24 10 0 0" }}
             animate={{
               strokeDasharray: ["15 120 25 25", "16 25 92 72", "4 250 22 22"],
               rotate: [120, 360],
