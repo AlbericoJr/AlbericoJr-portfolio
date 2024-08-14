@@ -5,6 +5,7 @@ import { FiDownload } from "react-icons/fi"
 import Socials from "@/components/Socials"
 import Photo from "@/components/Photo"
 import Stats from "@/components/Stats"
+import Link from "next/link"
 
 const page = () => {
   return (
@@ -30,7 +31,7 @@ const page = () => {
               >
                 <a
                   href="/AlbericoJr.pdf"
-                  download="AlbericoJr.pdf"
+                  download
                   className="flex items-center gap-2"
                 >
                   <span>Download CV</span>
