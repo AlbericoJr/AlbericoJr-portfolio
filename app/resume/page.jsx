@@ -1,6 +1,7 @@
 "use client"
 
 import { FaHtml5, FaCss3, FaJs, FaReact, FaFigma, FaNodeJs, FaSass, FaPython, FaBootstrap, FaAws } from "react-icons/fa"
+import {FaGolang} from "react-icons/fa6"
 import { SiTypescript, SiTailwindcss, SiNextdotjs } from "react-icons/si"
 
 const about = {
@@ -41,6 +42,11 @@ const experience ={
   description: "Sou um Desenvolvedor dedicado com experiência em administração de software e desenvolvimento web, especializado em HTML, CSS, JavaScript, React, e mais. Com sólida formação em Gestão de Pessoas e em andamento em Sistemas de Informação, destacando-se na criação de interfaces interativas e responsivas.",
   items: [
     {
+      company: "Atesteme",
+      position: "Desenvolvedor front-end | prestador de serviços",
+      duration: " 10/2024 - 12/2024"
+    },
+    {
       company: "G.Bombons",
       position: "Vendedor",
       duration: " 2014 - 2022"
@@ -57,7 +63,7 @@ const experience ={
 const education = {
   icon: "/assets/formacao/cap.svg",
   title: "Minha Formação",	
-  description: "Sou graduação em Gestão de Recursos Humanos pela Unibra, concluída em 2013, e um curso técnico em Desenvolvimento de Sistemas pela Secretaria de Educação de Pernambuco, finalizado em 2021. Atualmente, estou cursando o 6º período de Sistemas de Informação na UNIFG, com previsão de conclusão em 2025, focado em aprimorar meus conhecimentos.",
+  description: "Sou graduação em Gestão de Recursos Humanos pela Unibra, concluída em 2013, e um curso técnico em Desenvolvimento de Sistemas pela Secretaria de Educação de Pernambuco, finalizado em 2021. Atualmente, estou cursando o 7º período de Sistemas de Informação na UNIFG, com previsão de conclusão em 2025, focado em aprimorar meus conhecimentos.",
   items: [
     {
       institution: "UNIFG",
@@ -119,12 +125,20 @@ const skills = {
       name: "tailwind.css",
     },
     {
+      icon: <FaReact />,
+      name: "React Native",
+    },
+    {
       icon: <FaNodeJs />,
       name: "node.js",
     },
     {
       icon: <FaPython />,
       name: "python",
+    },
+    {
+      icon: <FaGolang />,
+      name: "Go",
     },
     {
       icon: <FaAws />,
@@ -184,7 +198,7 @@ const Resume = () => {
                       <li key={index} className="bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1">
                         <span className="text-accent">{item.duration}</span>
                         <h3 className="text-xl mx-w-[260px] min-h-[60px] text-center lg:text-left">{item.position}</h3>
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-3 mt-4">
                           <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
                           <p className="text-white/60">{item.company}</p>
                         </div>
