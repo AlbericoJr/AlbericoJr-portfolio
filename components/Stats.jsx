@@ -12,11 +12,11 @@ const stats =[
     text: "Projetos concluídos"
   },
   {
-    num: 9,
+    num: 12,
     text: "Tecnologias dominadas"
   },
   {
-    num: 500,
+    num: 600,
     text: "Commits realizados"
   },
 ]

@@ -40,10 +40,20 @@ const projects =[
     category: "front-end",
     title: "Gpt",
     description: "Utilizo as mais recentes tecnologias, como o ChatGPT, para construir soluções inovadoras e personalizadas. Meus projetos exploram as possibilidades da inteligência artificial para transformar ideias em realidade.",
-    stack: [{name: "React.js"}, {name: "Css"}],
+    stack: [{name: "React.js"}, {name: "CSS"}],
     image: "/assets/work/gpt.png",
     live: "https://hilarious-tartufo-d8cc6d.netlify.app/",
     github: "https://github.com/AlbericoJr/Gpt",
+  },
+  {
+    num: "04",
+    category: "front-end",
+    title: "Zingen",
+    description: "O Zingen é um aplicativo inovador criado para ajudar os usuários a aprenderem a cantar de maneira divertida e eficaz. Usando tecnologia de inteligência artificial, o Zingen remove a voz original das músicas e permite que você pratique suas habilidades vocais com uma variedade de recursos interativos.",
+    stack: [{name: "HTML"}, {name: "CSS"}],
+    image: "/assets/work/zingen-mockup.png",
+    live: "https://albericojr.github.io/Zingen/",
+    github: "https://github.com/AlbericoJr/Zingen",
   },
 ]
 
