@@ -55,6 +55,16 @@ const projects =[
     live: "https://albericojr.github.io/Zingen/",
     github: "https://github.com/AlbericoJr/Zingen",
   },
+  {
+    num: "05",
+    category: "front-end",
+    title: "Ped Doctor",
+    description: "O Pet Doctor é uma plataforma dedicada ao cuidado e bem-estar dos animais de estimação. Com um design amigável e acolhedor, o site oferece serviços, produtos e informações úteis para ajudar os donos de pets a cuidar melhor dos seus companheiros. Amamos animais tanto quanto você e queremos garantir que eles tenham uma vida longa, feliz e saudável.",
+    stack: [{name: "HTML"}, {name: "CSS"}, {name: "JavaScript"}],
+    image: "/assets/work/pet_doctor.png",
+    live: "https://albericojr.github.io/Pet_Doctor/",
+    github: "https://github.com/AlbericoJr/Pet_Doctor",
+  },
 ]
 
 const Work = () => {
