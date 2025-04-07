@@ -30,7 +30,7 @@ const page = () => {
                 className="uppercase flex items-center gap-2"
               >
                 <a
-                  href="/Alberico-Tec.pdf"
+                  href="/Alberico_Jr.pdf"
                   download
                   className="flex items-center gap-2"
                 >
