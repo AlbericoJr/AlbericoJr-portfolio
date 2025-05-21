@@ -65,6 +65,16 @@ const projects =[
     live: "https://albericojr.github.io/Pet_Doctor/",
     github: "https://github.com/AlbericoJr/Pet_Doctor",
   },
+  {
+    num: "06",
+    category: "Mobile",
+    title: "UpFit",
+    description: `Aplicativo mobile desenvolvido para ajudar usuários a gerenciar treinos e acompanhar o progresso fitness. Conta com autenticação, cadastro de exercícios e histórico de atividades. Interface moderna com tema escuro e foco na experiência do usuário. Back-end estruturado com Node.js e MongoDB, garantindo performance e escalabilidade.`,
+    stack: [{name: "React Native"}, {name: "Expo"}, {name: "Node.js"}, {name: "Express"}, {name: "MongoDB"}],
+    image: "/assets/work/UpFit.png",
+    live: "",
+    github: "https://github.com/AlbericoJr/UpFit",
+  },
 ]
 
 const Work = () => {
@@ -107,7 +117,7 @@ const Work = () => {
                   return (
                     <li 
                       key={index}
-                      className="text-xl text-accent"
+                      className="text-md text-accent"
                     >
                       {item.name}
                       {index !== project.stack.length - 1 && ","}
@@ -158,7 +168,7 @@ const Work = () => {
               {projects.map((project, index) => {
                 return (
                   <SwiperSlide key={index} className="w-full">
-                    <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
+                    <div className="h-[460px] relative group flex justify-center items-center bg-black/10">
                       {/* overlay */}
                       <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
                       {/* image */}
