@@ -1,26 +1,29 @@
 "use client"
 
-import {motion} from "framer-motion";
-import { useState } from "react";
-
-import {Swiper, SwiperSlide} from "swiper/react";
+import { useState } from "react"
+import Link from "next/link"
+import Image from "next/image"
+import { motion } from "framer-motion"
+import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
 
-import { BsArrowUpRight, BsGithub } from "react-icons/bs";
+import { BsArrowUpRight, BsGithub } from "react-icons/bs"
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+  TooltipProvider,
+} from "@/components/ui/tooltip" // Importando do local correto do shadcn/ui
+import WorkSliderBtns from "@/components/WorkSliderBtns"
 
-import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@radix-ui/react-tooltip";
-
-import Link from "next/link";
-import Image from "next/image";
-import WorkSliderBtns from "@/components/WorkSliderBtns";
-
-const projects =[
+const projects = [
   {
     num: "01",
     category: "front-end",
     title: "GYM Academy",
-    description: "Este projeto é um site desenvolvido para a academia GYM, com o objetivo de promover seus serviços e facilitar o acesso às informações essenciais para seus clientes.",
-    stack: [{name: "Rect.js"}, {name: "Tailwind.css"}],
+    description:
+      "Um site para a academia GYM, com o objetivo de promover seus serviços e facilitar o acesso a informações essenciais para seus clientes.",
+    stack: [{ name: "Rect.js" }, { name: "Tailwind.css" }],
     image: "/assets/work/GYM-academy.png",
     live: "https://gym-academia.vercel.app/",
     github: "https://github.com/AlbericoJr/GYM",
@@ -29,8 +32,9 @@ const projects =[
     num: "02",
     category: "front-end",
     title: "Spider Man 2",
-    description: "Projeto realizado através de estudos e inspirado no jogo Spider Man. O projeto foi feito para mostrar como utilizar o HTML e o CSS para criar um site responsível e moderno.",
-    stack: [{name: "HTML"}, {name: "CSS"}],
+    description:
+      "Projeto de estudo inspirado no jogo Spider-Man 2, focado em demonstrar o uso de HTML e CSS para criar um site responsivo e moderno.",
+    stack: [{ name: "HTML" }, { name: "CSS" }],
     image: "/assets/work/spider-man-2.png",
     live: "https://spider-man-rho-two.vercel.app/",
     github: "https://github.com/AlbericoJr/SPIDER-MAN",
@@ -39,8 +43,9 @@ const projects =[
     num: "03",
     category: "front-end",
     title: "Gpt",
-    description: "Utilizo as mais recentes tecnologias, como o ChatGPT, para construir soluções inovadoras e personalizadas. Meus projetos exploram as possibilidades da inteligência artificial para transformar ideias em realidade.",
-    stack: [{name: "React.js"}, {name: "CSS"}],
+    description:
+      "Projeto que explora as possibilidades da inteligência artificial, utilizando tecnologias como o ChatGPT para construir soluções inovadoras e personalizadas.",
+    stack: [{ name: "React.js" }, { name: "CSS" }],
     image: "/assets/work/gpt.png",
     live: "https://hilarious-tartufo-d8cc6d.netlify.app/",
     github: "https://github.com/AlbericoJr/Gpt",
@@ -49,8 +54,9 @@ const projects =[
     num: "04",
     category: "front-end",
     title: "Zingen",
-    description: "O Zingen é um aplicativo inovador criado para ajudar os usuários a aprenderem a cantar de maneira divertida e eficaz. Usando tecnologia de inteligência artificial, o Zingen remove a voz original das músicas e permite que você pratique suas habilidades vocais com uma variedade de recursos interativos.",
-    stack: [{name: "HTML"}, {name: "CSS"}],
+    description:
+      "Aplicativo inovador que utiliza IA para remover a voz de músicas, permitindo que usuários pratiquem suas habilidades vocais de forma divertida e eficaz.",
+    stack: [{ name: "HTML" }, { name: "CSS" }],
     image: "/assets/work/zingen-mockup.png",
     live: "https://albericojr.github.io/Zingen/",
     github: "https://github.com/AlbericoJr/Zingen",
@@ -59,8 +65,9 @@ const projects =[
     num: "05",
     category: "front-end",
     title: "Ped Doctor",
-    description: "O Pet Doctor é uma plataforma dedicada ao cuidado e bem-estar dos animais de estimação. Com um design amigável e acolhedor, o site oferece serviços, produtos e informações úteis para ajudar os donos de pets a cuidar melhor dos seus companheiros. Amamos animais tanto quanto você e queremos garantir que eles tenham uma vida longa, feliz e saudável.",
-    stack: [{name: "HTML"}, {name: "CSS"}, {name: "JavaScript"}],
+    description:
+      "Plataforma dedicada ao cuidado de animais de estimação, oferecendo serviços, produtos e informações úteis com um design amigável e acolhedor.",
+    stack: [{ name: "HTML" }, { name: "CSS" }, { name: "JavaScript" }],
     image: "/assets/work/pet_doctor.png",
     live: "https://albericojr.github.io/Pet_Doctor/",
     github: "https://github.com/AlbericoJr/Pet_Doctor",
@@ -69,8 +76,15 @@ const projects =[
     num: "06",
     category: "Mobile",
     title: "UpFit",
-    description: `Aplicativo UpFit foi desenvolvido para ajudar usuários a gerenciar seus treinos e acompanhar a evolução física de forma prática e intuitiva. Conta com autenticação, cadastro de exercícios, histórico de atividades e uma interface moderna, focada na melhor experiência do usuário. Projetado para ser rápido, escalável e eficiente.`,
-    stack: [{name: "React Native"}, {name: "Expo"}, {name: "Node.js"}, {name: "Express"}, {name: "MongoDB"}],
+    description:
+      "Aplicativo para gerenciamento de treinos e acompanhamento da evolução física, com autenticação, cadastro de exercícios e histórico de atividades.",
+    stack: [
+      { name: "React Native" },
+      { name: "Expo" },
+      { name: "Node.js" },
+      { name: "Express" },
+      { name: "MongoDB" },
+    ],
     image: "/assets/work/UpFit.png",
     live: "",
     github: "https://github.com/AlbericoJr/UpFit",
@@ -79,8 +93,9 @@ const projects =[
     num: "07",
     category: "Mobile",
     title: "GranaGo",
-    description: `O GranaGo é um aplicativo completo para controle de finanças pessoais`,
-    stack: [{name: "React Native"}, {name: "Expo"}, {name: "Node.js"}],
+    description:
+      "O GranaGo é um aplicativo completo para controle de finanças pessoais, ajudando usuários a gerenciar suas receitas e despesas de forma simples.",
+    stack: [{ name: "React Native" }, { name: "Expo" }, { name: "Node.js" }],
     image: "/assets/work/GranaGo.png",
     live: "",
     github: "https://github.com/AlbericoJr/GranaGo",
@@ -89,29 +104,41 @@ const projects =[
     num: "08",
     category: "front-end",
     title: "Brainwave",
-    description: "O Brainwave é uma landing page moderna e responsiva criada para apresentar uma plataforma fictícia de inteligência artificial. O foco do projeto está na experiência visual, clareza na comunicação e estruturação estratégica de conteúdo.",
-    stack: [{name: "Rect.js"}, {name: "Tailwind.css"}],
+    description:
+      "Landing page moderna e responsiva para uma plataforma fictícia de IA, com foco em experiência visual e comunicação clara.",
+    stack: [{ name: "Rect.js" }, { name: "Tailwind.css" }],
     image: "/assets/work/brainwave.png",
     live: "https://brainwave-rho-ten.vercel.app/",
     github: "https://github.com/AlbericoJr/Brainwave",
   },
+  {
+    num: "09",
+    category: "front-end",
+    title: "Brainwave",
+    description:
+      "Karla Design! É um projeto de site de página única, moderno e responsivo, desenvolvido para um estúdio de nail art. O design é vibrante, criativo e focado em proporcionar uma excelente experiência visual para o usuário.",
+    stack: [{ name: "HTML" }, { name: "Tailwind.css" }],
+    image: "/assets/work/Karla-Design.png",
+    live: "https://albericojr.github.io/Karla_Design/",
+    github: "https://github.com/AlbericoJr/Karla_Design",
+  },
 ]
 
 const Work = () => {
-  const [project, setProject] = useState(projects[0]);
+  const [project, setProject] = useState(projects[0])
 
   const handleSlideChange = (swiper) => {
-    const currentIndex = swiper.activeIndex;
+    const currentIndex = swiper.activeIndex
 
-    setProject(projects[currentIndex]);
+    setProject(projects[currentIndex])
   }
 
   return (
-    <motion.section 
-      initial={{opacity: 0}} 
+    <motion.section
+      initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
-        transition: {delay: 2.4, duration: 0.4, ease: "easeIn"},
+        transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
       }}
       className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-0"
     >
@@ -124,19 +151,17 @@ const Work = () => {
                 {project.num}
               </div>
               {/* category */}
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+              <h2 className="text-[42px] font-bold leading-none text-white hover:text-accent transition-all duration-500 capitalize">
                 projeto {project.category}
               </h2>
               {/* description */}
-              <p className="text-white/60">
-                {project.description}
-              </p>
+              <p className="text-white/60">{project.description}</p>
               {/* stack */}
               <ul className="flex gap-4">
                 {project.stack.map((item, index) => {
                   return (
-                    <li 
-                      key={index}
+                    <li
+                      key={item.name} // Usar um valor único como chave
                       className="text-md text-accent"
                     >
                       {item.name}
@@ -148,34 +173,34 @@ const Work = () => {
               {/* border */}
               <div className="border border-white/20"></div>
               {/* buttons */}
-              <div className="flex items-center gap-4">
-                {/* live project button */}
-                <Link href={project.live} target="_blank">
-                  <TooltipProvider delayDuration={100}>
+              <TooltipProvider delayDuration={100}>
+                <div className="flex items-center gap-4">
+                  {/* live project button */}
+                  {project.live && (
+                    <Link href={project.live} target="_blank">
+                      <Tooltip>
+                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                          <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Projeto ao vivo</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </Link>
+                  )}
+                  {/* github project button */}
+                  <Link href={project.github} target="_blank">
                     <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[78px] rounded-full bg-white/5 flex justify-center items-center group">
-                        <BsArrowUpRight className="text-white text-3xl group-hover:text-accent"/>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Projeto ao vivo</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </Link>
-                {/* github project button */}
-                <Link href={project.github} target="_blank">
-                  <TooltipProvider delayDuration={100}>
-                    <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[78px] rounded-full bg-white/5 flex justify-center items-center group">
-                        <BsGithub className="text-white text-3xl group-hover:text-accent"/>
+                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                        <BsGithub className="text-white text-3xl group-hover:text-accent" />
                       </TooltipTrigger>
                       <TooltipContent>
                         <p>Repositório Github</p>
                       </TooltipContent>
                     </Tooltip>
-                  </TooltipProvider>
-                </Link>
-              </div>
+                  </Link>
+                </div>
+              </TooltipProvider>
             </div>
           </div>
           <div className="w-full xl:w-[50%]">
@@ -187,17 +212,17 @@ const Work = () => {
             >
               {projects.map((project, index) => {
                 return (
-                  <SwiperSlide key={index} className="w-full">
+                  <SwiperSlide key={project.num} className="w-full">
                     <div className="h-[460px] relative group flex justify-center items-center bg-black/10">
                       {/* overlay */}
                       <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
                       {/* image */}
                       <div className="relative w-full h-full">
-                        <Image 
-                          src={project.image} 
-                          fill 
-                          className="object-cover" 
-                          alt=""
+                        <Image
+                          src={project.image}
+                          fill
+                          className="object-cover"
+                          alt={`Imagem do projeto ${project.title}`}
                         />
                       </div>
                     </div>

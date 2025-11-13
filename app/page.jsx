@@ -1,18 +1,18 @@
-import { Button } from "@/components/ui/button"
+import Link from "next/link"
 import { FiDownload } from "react-icons/fi"
 
-// components
+// Componentes
+import { Button } from "@/components/ui/button"
 import Socials from "@/components/Socials"
 import Photo from "@/components/Photo"
 import Stats from "@/components/Stats"
-import Link from "next/link"
 
-const page = () => {
+const Page = () => {
   return (
-    <section>
+    <main>
       <div className="container mx-auto h-full">
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
-
+          {/* Texto */}
           <div className="text-center xl:text-left order-2 xl:order-none">
             <span className="text-xl">Web Developer</span>
             <h1 className="h1 mb-6">
@@ -20,37 +20,38 @@ const page = () => {
             </h1>
             <p className="max-w-[500px] mb-9 text-white/80">
               Sou web Developer, cursando a graduação em Sistema de informação,
-              com experiência em administração de software, com habilidade em HTML, CSS, JavaScript, React.js e outras tecnologias.
+              com experiência em administração de software, com habilidade em
+              HTML, CSS, JavaScript, React.js e outras tecnologias.
             </p>
-            {/* btn socials */}
+            {/* Botões e Sociais */}
             <div className="flex flex-col xl:flex-row items-center gap-8">
-              <Button
-                variant="outline"
-                size="lg"
-                className="uppercase flex items-center gap-2"
-              >
-                <a
+              <Button variant="outline" size="lg" className="uppercase" asChild>
+                <Link
                   href="/Alberico_Jr.pdf"
-                  download
+                  target="_blank"
                   className="flex items-center gap-2"
                 >
                   <span>Download CV</span>
                   <FiDownload className="text-xl" />
-                </a>
+                </Link>
               </Button>
               <div className="mb-8 xl:mb-0">
-                <Socials containerSyles="flex gap-6" iconStyles="w-9 h-9 border border-accent rounded-full flex justify-center items-center text-accent text-base hover:bg-accent hover:text-primary hover:transition-all duration-500"/>
+                <Socials
+                  containerStyles="flex gap-6"
+                  iconStyles="w-9 h-9 border border-accent rounded-full flex justify-center items-center text-accent text-base hover:bg-accent hover:text-primary hover:transition-all duration-500"
+                />
               </div>
             </div>
           </div>
+          {/* Foto */}
           <div className="order-1 xl:order-none mb-8 xl:mb-0">
-            <Photo/>
+            <Photo />
           </div>
         </div>
       </div>
-      <Stats/>
-    </section>
+      <Stats />
+    </main>
   )
 }
 
-export default page
+export default Page

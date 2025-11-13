@@ -1,5 +1,4 @@
 "use client"
-
 import {BsArrowDownRight} from "react-icons/bs"
 import Link from "next/link"
 
@@ -32,9 +31,9 @@ const services = [
 
 import { motion } from "framer-motion"
 
-const Servicos = () => {
+const ServicesPage = () => {
   return (
-    <section className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-0 mb-9">
+    <section className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-0">
       <div className="container mx-auto">
         <motion.div 
           initial={{ opacity: 0 }}
@@ -47,7 +46,7 @@ const Servicos = () => {
           {services.map((service, index) => {
             return(
               <div 
-                key={index}
+                key={service.num}
                 className="flex-1 flex flex-col justify-center gap-6 group"
               >
                 {/* top */}
@@ -55,9 +54,14 @@ const Servicos = () => {
                   <div className="text-5xl font-extrabold text-outline text-transparent group-hover:text-outline-hover transition-all duration-500">
                     {service.num}
                   </div>
-                  <Link href={service.href} className="w-[70px] h-[70px] rounded-full bg-white group-hover:bg-accent transition-all duration-500 flex justify-center items-center hover:-rotate-45">
-                  <BsArrowDownRight className="text-primary text-3xl"/>
-                  </Link>
+                  {/* Renderiza o link apenas se href for válido, ou um div se não for */}
+                  {service.href ? (
+                    <Link href={service.href} className="w-[70px] h-[70px] rounded-full bg-white group-hover:bg-accent transition-all duration-500 flex justify-center items-center hover:-rotate-45">
+                      <BsArrowDownRight className="text-primary text-3xl"/>
+                    </Link>
+                  ) : (
+                    <div className="w-[70px] h-[70px] rounded-full bg-white group-hover:bg-accent transition-all duration-500 flex justify-center items-center"><BsArrowDownRight className="text-primary text-3xl"/></div>
+                  )}
                 </div>
                 {/* title */}
                 <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500">
@@ -76,4 +80,4 @@ const Servicos = () => {
   )
 }
 
-export default Servicos
+export default ServicesPage

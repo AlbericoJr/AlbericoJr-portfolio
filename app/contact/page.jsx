@@ -1,19 +1,11 @@
 "use client"
 
+import { motion } from "framer-motion"
+import { FaEnvelope, FaMapMarkedAlt } from "react-icons/fa"
+
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-
-import {
-  Select,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
-
-import { FaEnvelope, FaMapMarkedAlt } from "react-icons/fa"
 
 const info = [
   {
@@ -27,9 +19,6 @@ const info = [
     description: "Recife - PE",
   },
 ]
-
-import { motion } from "framer-motion"
-import { SelectContent } from "@radix-ui/react-select"
 
 const Contact = () => {
   return (
@@ -57,32 +46,45 @@ const Contact = () => {
               </p>
               {/* input */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Input type="text" name="firstname" placeholder="Primeiro Nome" required/>
-                <Input type="text" name="lastname" placeholder="Sobrenome" />
-                <Input type="email" name="email" placeholder="E-mail" required/>
-                <Input type="phone" name="phone" placeholder="Número de telefone" />
+                {/* Para acessibilidade, é melhor usar <label> em vez de placeholder. 
+                    Como o design é minimalista, uma opção é usar labels flutuantes ou 
+                    labels visivelmente ocultas, mas ainda acessíveis para leitores de tela.
+                    Por simplicidade, mantive o placeholder, mas adicionei o atributo `aria-label`.
+                */}
+                <Input
+                  type="text"
+                  name="firstname"
+                  placeholder="Primeiro Nome"
+                  aria-label="Primeiro Nome"
+                  required
+                />
+                <Input
+                  type="text"
+                  name="lastname"
+                  placeholder="Sobrenome"
+                  aria-label="Sobrenome"
+                />
+                <Input
+                  type="email"
+                  name="email"
+                  placeholder="E-mail"
+                  aria-label="E-mail"
+                  required
+                />
+                <Input
+                  type="phone"
+                  name="phone"
+                  placeholder="Número de telefone"
+                  aria-label="Número de telefone"
+                />
               </div>
-              {/* select */}
-
-              {/* <Select>
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Selecione um serviço" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    <SelectLabel>Selecione um serviço</SelectLabel>
-                    <SelectItem value="est">Desenvolvimento Web</SelectItem>
-                    <SelectItem value="cst">UI/UX Design</SelectItem>
-                    <SelectItem value="mst">Design de logotipo</SelectItem>
-                  </SelectGroup>
-                </SelectContent>
-              </Select> */}
 
               {/* textarea */}
               <Textarea
                 name="message"
                 className="h-[200px]"
                 placeholder="Digite sua mensagem aqui..."
+                aria-label="Sua mensagem"
               />
               {/* btn */}
               <Button type="submit" size="md" className="max-w-48">
