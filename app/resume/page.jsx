@@ -6,7 +6,7 @@ import { SiTypescript, SiTailwindcss, SiNextdotjs } from "react-icons/si"
 
 const about = {
   title: "Sobre mim",
-  description: "Sou Alberico Junior, desenvolvedor Front-End com mais de 3 anos de experiência, apaixonado por criar soluções web intuitivas e funcionais. Com habilidades em diversas tecnologias, estou disponível para projetos freelance.",
+  description: "Sou Alberico Junior, desenvolvedor Front-End com mais de 4 anos de experiência, apaixonado por criar soluções web intuitivas e funcionais. Com habilidades em diversas tecnologias, estou disponível para projetos freelance.",
   info: [
     {
       fieldName: "Name",
@@ -14,7 +14,7 @@ const about = {
     },
     {
       fieldName: "Experiência",
-      fieldValue: "3+ anos",
+      fieldValue: "4+ anos",
     },
     {
       fieldName: "Nacionalidade",
@@ -39,8 +39,13 @@ const about = {
 const experience ={
   icon: "/assets/formacao/badge.svg",
   title: "Minha experiência",
-  description: "Sou um Desenvolvedor dedicado com experiência em administração de software e desenvolvimento web, especializado em HTML, CSS, JavaScript, React, e mais. Com sólida formação em Gestão de Pessoas e em andamento em Sistemas de Informação, destacando-se na criação de interfaces interativas e responsivas.",
+  description: "Sou um Desenvolvedor dedicado com experiência em administração de software e desenvolvimento web, especializado em HTML, CSS, JavaScript, React, e mais. Com sólida formação em Gestão de Pessoas e em andamento em Sistemas de Informação, destacando-se na criação de interfaces interativas e responsivas e de Apps Mobile.",
   items: [
+    {
+      company: "UNINASSAU",
+      position: "Assistente de EAD",
+      duration: " 12/2025 - Atualmente"
+    },
     {
       company: "Atesteme",
       position: "Desenvolvedor front-end | prestador de serviços",
@@ -63,7 +68,7 @@ const experience ={
 const education = {
   icon: "/assets/formacao/cap.svg",
   title: "Minha Formação",	
-  description: "Sou graduação em Gestão de Recursos Humanos pela Unibra, concluída em 2013, e um curso técnico em Desenvolvimento de Sistemas pela Secretaria de Educação de Pernambuco, finalizado em 2021. Atualmente, estou cursando o 7º período de Sistemas de Informação na UNIFG, com previsão de conclusão em 2025, focado em aprimorar meus conhecimentos.",
+  description: "Sou graduado em Gestão de Recursos Humanos pela Unibra, concluída em 2013, e em Técnico em Desenvolvimento de Sistemas pela Secretaria de Educação de Pernambuco, finalizado em 2021. Atualmente, estou cursando o 8º período de Sistemas de Informação na UNIFG, com previsão de conclusão em 2026, focado em aprimorar meus conhecimentos.",
   items: [
     {
       institution: "UNIFG",
@@ -86,7 +91,7 @@ const education = {
 // skills
 const skills = {
   title: "Minhas Skills",
-  description: "Minhas habilidades abrangem uma ampla gama de tecnologias e ferramentas essenciais para o desenvolvimento Front-End.",
+  description: "Minhas habilidades abrangem uma ampla gama de tecnologias e ferramentas essenciais para o desenvolvimento Front-End e Mobile.",
   skillList:[
     {
       icon: <FaHtml5 />,

@@ -27,7 +27,7 @@ const Page = () => {
             <div className="flex flex-col xl:flex-row items-center gap-8">
               <Button variant="outline" size="lg" className="uppercase" asChild>
                 <Link
-                  href="/Alberico_Jr.pdf"
+                  href="/Albérico_Jr.pdf"
                   target="_blank"
                   className="flex items-center gap-2"
                 >

@@ -122,6 +122,17 @@ const projects = [
     live: "https://albericojr.github.io/Karla_Design/",
     github: "https://github.com/AlbericoJr/Karla_Design",
   },
+  {
+    num: "10",
+    category: "front-end",
+    title: "Nova",
+    description:
+      "Solução web completa para empresas que buscam otimizar processos de segurança e dados corporativos. A plataforma combina um design profissional e minimalista com seções estratégicas de serviços, FAQ e blog, projetadas para transformar visitantes em parceiros de negócios.",
+    stack: [{ name: "React.js" }, { name: "Tailwind.css" }],
+    image: "/assets/work/nova.png",
+    live: "https://nova-psi-pied.vercel.app/",
+    github: "https://github.com/AlbericoJr/Nova",
+  },
 ]
 
 const Work = () => {
