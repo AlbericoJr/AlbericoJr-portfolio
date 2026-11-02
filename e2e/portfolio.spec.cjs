@@ -52,7 +52,7 @@ test("contato: envio simulado e falha",async({page})=>{
  })
  await submit.click()
  await expect(page.getByRole("status")).toContainText(/Mensagem enviada/i)
- expect(captured).toContain("teste%40example.com")
+ expect(captured).toContain("teste@example.com")
  await page.unroute("https://formspree.io/f/mdknzqra")
  await fill()
  await page.route("https://formspree.io/f/mdknzqra",route=>route.fulfill({status:503,body:"offline"}))
