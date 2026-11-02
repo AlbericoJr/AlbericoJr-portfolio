@@ -1,36 +1,11 @@
-import Link from "next/link";
-import {Button} from "./ui/button";
-
-// components
-import Nav from "./Nav";
-import MobileNav from "./MobileNav";
-
-const Header = () => {
-  return (
-    <header className="py-8 xl:py-10 text-white ">
-      <div className="container mx-auto flex justify-between items-center">
-        <Link href="/">
-          <h1 className="text-3xl font-semibold">
-            Albérico <span className="text-accent">Jr.</span>
-          </h1>
-        </Link>
-
-        {/* desktop nav & hire me button */}
-        <div className="hidden xl:flex items-center gap-8">
-          <Nav/>
-          <Link href="/contact">
-            <Button>Contrate-me</Button>
-          </Link>
-        </div>
-
-        {/* mobile nav */}
-        <div className="xl:hidden">
-          <MobileNav/>
-        </div>
-
-      </div>
-    </header>
-  )
+import Link from "next/link"
+import Nav from "./Nav"
+import MobileNav from "./MobileNav"
+export default function Header(){
+ return <header className="relative z-30 border-b border-white/5 bg-primary/95 py-5 text-white">
+ <div className="site-shell flex items-center justify-between gap-4">
+ <Link prefetch={false} href="/" aria-label="Albérico Júnior, página inicial" className="text-2xl font-semibold tracking-tight">Albérico <span className="text-accent">Jr.</span></Link>
+ <div className="hidden items-center gap-8 xl:flex"><Nav/><Link prefetch={false} href="/contact" className="site-link">Vamos conversar</Link></div>
+ <div className="xl:hidden"><MobileNav/></div>
+ </div></header>
 }
-
-export default Header

@@ -1,256 +1,33 @@
 "use client"
-
-import { useState } from "react"
-import Link from "next/link"
+import {useState} from "react"
 import Image from "next/image"
-import { motion } from "framer-motion"
-import { Swiper, SwiperSlide } from "swiper/react"
-import "swiper/css"
+import Link from "next/link"
+import {FiArrowUpRight,FiGithub} from "react-icons/fi"
+import {projects,categories} from "@/lib/projects.mjs"
 
-import { BsArrowUpRight, BsGithub } from "react-icons/bs"
-import {
-  Tooltip,
-  TooltipTrigger,
-  TooltipContent,
-  TooltipProvider,
-} from "@/components/ui/tooltip" // Importando do local correto do shadcn/ui
-import WorkSliderBtns from "@/components/WorkSliderBtns"
-
-const projects = [
-  {
-    num: "01",
-    category: "front-end",
-    title: "GYM Academy",
-    description:
-      "Um site para a academia GYM, com o objetivo de promover seus serviços e facilitar o acesso a informações essenciais para seus clientes.",
-    stack: [{ name: "Rect.js" }, { name: "Tailwind.css" }],
-    image: "/assets/work/GYM-academy.png",
-    live: "https://gym-academia.vercel.app/",
-    github: "https://github.com/AlbericoJr/GYM",
-  },
-  {
-    num: "02",
-    category: "front-end",
-    title: "Spider Man 2",
-    description:
-      "Projeto de estudo inspirado no jogo Spider-Man 2, focado em demonstrar o uso de HTML e CSS para criar um site responsivo e moderno.",
-    stack: [{ name: "HTML" }, { name: "CSS" }],
-    image: "/assets/work/spider-man-2.png",
-    live: "https://spider-man-rho-two.vercel.app/",
-    github: "https://github.com/AlbericoJr/SPIDER-MAN",
-  },
-  {
-    num: "03",
-    category: "front-end",
-    title: "Gpt",
-    description:
-      "Projeto que explora as possibilidades da inteligência artificial, utilizando tecnologias como o ChatGPT para construir soluções inovadoras e personalizadas.",
-    stack: [{ name: "React.js" }, { name: "CSS" }],
-    image: "/assets/work/gpt.png",
-    live: "https://hilarious-tartufo-d8cc6d.netlify.app/",
-    github: "https://github.com/AlbericoJr/Gpt",
-  },
-  {
-    num: "04",
-    category: "front-end",
-    title: "Zingen",
-    description:
-      "Aplicativo inovador que utiliza IA para remover a voz de músicas, permitindo que usuários pratiquem suas habilidades vocais de forma divertida e eficaz.",
-    stack: [{ name: "HTML" }, { name: "CSS" }],
-    image: "/assets/work/zingen-mockup.png",
-    live: "https://albericojr.github.io/Zingen/",
-    github: "https://github.com/AlbericoJr/Zingen",
-  },
-  {
-    num: "05",
-    category: "front-end",
-    title: "Ped Doctor",
-    description:
-      "Plataforma dedicada ao cuidado de animais de estimação, oferecendo serviços, produtos e informações úteis com um design amigável e acolhedor.",
-    stack: [{ name: "HTML" }, { name: "CSS" }, { name: "JavaScript" }],
-    image: "/assets/work/pet_doctor.png",
-    live: "https://albericojr.github.io/Pet_Doctor/",
-    github: "https://github.com/AlbericoJr/Pet_Doctor",
-  },
-  {
-    num: "06",
-    category: "Mobile",
-    title: "UpFit",
-    description:
-      "Aplicativo para gerenciamento de treinos e acompanhamento da evolução física, com autenticação, cadastro de exercícios e histórico de atividades.",
-    stack: [
-      { name: "React Native" },
-      { name: "Expo" },
-      { name: "Node.js" },
-      { name: "Express" },
-      { name: "MongoDB" },
-    ],
-    image: "/assets/work/UpFit.png",
-    live: "",
-    github: "https://github.com/AlbericoJr/UpFit",
-  },
-  {
-    num: "07",
-    category: "Mobile",
-    title: "GranaGo",
-    description:
-      "O GranaGo é um aplicativo completo para controle de finanças pessoais, ajudando usuários a gerenciar suas receitas e despesas de forma simples.",
-    stack: [{ name: "React Native" }, { name: "Expo" }, { name: "Node.js" }],
-    image: "/assets/work/GranaGo.png",
-    live: "",
-    github: "https://github.com/AlbericoJr/GranaGo",
-  },
-  {
-    num: "08",
-    category: "front-end",
-    title: "Brainwave",
-    description:
-      "Landing page moderna e responsiva para uma plataforma fictícia de IA, com foco em experiência visual e comunicação clara.",
-    stack: [{ name: "Rect.js" }, { name: "Tailwind.css" }],
-    image: "/assets/work/brainwave.png",
-    live: "https://brainwave-rho-ten.vercel.app/",
-    github: "https://github.com/AlbericoJr/Brainwave",
-  },
-  {
-    num: "09",
-    category: "front-end",
-    title: "Brainwave",
-    description:
-      "Karla Design! É um projeto de site de página única, moderno e responsivo, desenvolvido para um estúdio de nail art. O design é vibrante, criativo e focado em proporcionar uma excelente experiência visual para o usuário.",
-    stack: [{ name: "HTML" }, { name: "Tailwind.css" }],
-    image: "/assets/work/Karla-Design.png",
-    live: "https://albericojr.github.io/Karla_Design/",
-    github: "https://github.com/AlbericoJr/Karla_Design",
-  },
-  {
-    num: "10",
-    category: "front-end",
-    title: "Nova",
-    description:
-      "Solução web completa para empresas que buscam otimizar processos de segurança e dados corporativos. A plataforma combina um design profissional e minimalista com seções estratégicas de serviços, FAQ e blog, projetadas para transformar visitantes em parceiros de negócios.",
-    stack: [{ name: "React.js" }, { name: "Tailwind.css" }],
-    image: "/assets/work/nova.png",
-    live: "https://nova-psi-pied.vercel.app/",
-    github: "https://github.com/AlbericoJr/Nova",
-  },
-]
-
-const Work = () => {
-  const [project, setProject] = useState(projects[0])
-
-  const handleSlideChange = (swiper) => {
-    const currentIndex = swiper.activeIndex
-
-    setProject(projects[currentIndex])
-  }
-
-  return (
-    <motion.section
-      initial={{ opacity: 0 }}
-      animate={{
-        opacity: 1,
-        transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
-      }}
-      className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-0"
-    >
-      <div className="container mx-auto">
-        <div className="flex flex-col xl:flex-row xl:gap-[30px]">
-          <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
-            <div className="flex flex-col gap-[30px] h-[50%]">
-              {/* outline num */}
-              <div className="text-8xl leading-none font-extrabold text-transparent text-outline">
-                {project.num}
-              </div>
-              {/* category */}
-              <h2 className="text-[42px] font-bold leading-none text-white hover:text-accent transition-all duration-500 capitalize">
-                projeto {project.category}
-              </h2>
-              {/* description */}
-              <p className="text-white/60">{project.description}</p>
-              {/* stack */}
-              <ul className="flex gap-4">
-                {project.stack.map((item, index) => {
-                  return (
-                    <li
-                      key={item.name} // Usar um valor único como chave
-                      className="text-md text-accent"
-                    >
-                      {item.name}
-                      {index !== project.stack.length - 1 && ","}
-                    </li>
-                  )
-                })}
-              </ul>
-              {/* border */}
-              <div className="border border-white/20"></div>
-              {/* buttons */}
-              <TooltipProvider delayDuration={100}>
-                <div className="flex items-center gap-4">
-                  {/* live project button */}
-                  {project.live && (
-                    <Link href={project.live} target="_blank">
-                      <Tooltip>
-                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                          <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
-                        </TooltipTrigger>
-                        <TooltipContent>
-                          <p>Projeto ao vivo</p>
-                        </TooltipContent>
-                      </Tooltip>
-                    </Link>
-                  )}
-                  {/* github project button */}
-                  <Link href={project.github} target="_blank">
-                    <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                        <BsGithub className="text-white text-3xl group-hover:text-accent" />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Repositório Github</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </Link>
-                </div>
-              </TooltipProvider>
-            </div>
-          </div>
-          <div className="w-full xl:w-[50%]">
-            <Swiper
-              spaceBetween={30}
-              slidesPerView={1}
-              className="xl:h-[520px] mb-12"
-              onSlideChange={handleSlideChange}
-            >
-              {projects.map((project, index) => {
-                return (
-                  <SwiperSlide key={project.num} className="w-full">
-                    <div className="h-[460px] relative group flex justify-center items-center bg-black/10">
-                      {/* overlay */}
-                      <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
-                      {/* image */}
-                      <div className="relative w-full h-full">
-                        <Image
-                          src={project.image}
-                          fill
-                          className="object-cover"
-                          alt={`Imagem do projeto ${project.title}`}
-                        />
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                )
-              })}
-              {/* slider Botão */}
-              <WorkSliderBtns
-                containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
-                btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all"
-              />
-            </Swiper>
-          </div>
-        </div>
+export default function Work(){
+ const [filter,setFilter]=useState("Todos")
+ const visible=filter==="Todos"?projects:projects.filter(p=>p.category===filter)
+ return <main id="conteudo" className="site-shell pb-20 pt-12 sm:pt-20">
+   <div className="max-w-3xl"><p className="mb-3 text-sm font-semibold uppercase tracking-widest text-accent">Portfólio</p><h1 className="h2">Projetos e experiências</h1><p className="mt-5 text-white/70">Aplicações mobile, interfaces web e estudos. Veja os detalhes, tecnologias e códigos de cada projeto.</p></div>
+   <div className="mt-10 flex flex-wrap gap-3" role="group" aria-label="Filtrar projetos">
+    {categories.map(c=><button key={c} type="button" aria-pressed={filter===c} onClick={()=>setFilter(c)} className={(filter===c?"bg-accent text-primary":"border border-white/20 bg-[#27272c] text-white hover:border-accent")+" rounded-full px-5 py-2 text-sm font-semibold transition-colors"}>{c}</button>)}
+   </div>
+   <p role="status" className="mt-5 text-sm text-white/60">{visible.length} {visible.length===1?"projeto":"projetos"}</p>
+   <div className="mt-7 grid gap-7 md:grid-cols-2 xl:grid-cols-3">
+    {visible.map(p=><article key={p.slug} className="site-card group flex flex-col overflow-hidden">
+      <div className="relative flex h-56 items-center justify-center overflow-hidden bg-gradient-to-br from-[#393a43] to-[#18181e]">
+       {p.image?<Image src={p.image} alt={"Captura do projeto "+p.title} fill sizes="(max-width:768px) 100vw,(max-width:1280px) 50vw,33vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"/>:<span className="text-4xl font-extrabold tracking-tight text-accent">Planej.ai</span>}
       </div>
-    </motion.section>
-  )
+      <div className="flex flex-1 flex-col p-6"><div className="flex items-center justify-between gap-2"><span className="text-xs uppercase tracking-widest text-accent">{p.role}</span>{p.featured&&<span className="text-xs text-white/50">Destaque</span>}</div>
+      <h2 className="mt-3 text-2xl font-bold">{p.title}</h2><p className="mt-3 flex-1 text-sm leading-7 text-white/65">{p.description}</p>
+      <ul aria-label={"Tecnologias do projeto "+p.title} className="mt-5 flex flex-wrap gap-2">{p.stack.map(t=><li key={t} className="rounded bg-white/10 px-2.5 py-1 text-xs text-white/80">{t}</li>)}</ul>
+      <div className="mt-6 flex flex-wrap gap-3 border-t border-white/10 pt-5">
+       <Link prefetch={false} href={"/work/"+p.slug} className="inline-flex items-center rounded-lg border border-accent/60 px-4 py-2 text-sm font-semibold text-accent hover:bg-accent hover:text-primary" aria-label={"Ver detalhes do projeto "+p.title}>Detalhes</Link>
+       <a href={p.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg border border-white/25 px-4 py-2 text-sm font-semibold hover:border-accent hover:text-accent" aria-label={"Ver código do projeto "+p.title}><FiGithub aria-hidden="true"/> Código</a>
+       {p.live&&<a href={p.live} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-primary hover:bg-accent-hover" aria-label={"Ver demonstração de "+p.title}>Demo <FiArrowUpRight aria-hidden="true"/></a>}
+      </div></div>
+     </article>)}
+   </div>
+ </main>
 }
-
-export default Work

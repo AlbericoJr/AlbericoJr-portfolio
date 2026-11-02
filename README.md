@@ -1,35 +1,72 @@
+# Portfólio — Albérico Júnior
 
-# Albérico Jr. Portfolio
+Portfólio profissional de **desenvolvimento Front-end e Mobile**, com projetos em React, Next.js, TypeScript e React Native.
 
-Este portfólio foi desenvolvido utilizando Next.js e Tailwind CSS, proporcionando uma experiência de usuário fluida e visualmente atraente em diversos dispositivos.
+**Site:** https://albericojr-portfolio-xi.vercel.app/
 
-## Tecnologias Utilizadas
-### Next.js
-* Garante um desempenho excepcional e otimizado para SEO, facilitando a indexação do seu trabalho pelos mecanismos de busca.
+## Principais páginas
 
-### Tailwind CSS
+- **Início:** apresentação, especialidades, links profissionais e currículo.
+- **Projetos:** galeria com filtros Web, Mobile e Estudos, páginas individuais com resumos técnicos e links para repositórios/demonstrações.
+- **Serviços:** desenvolvimento web, mobile, interfaces e manutenção.
+- **Experiência:** trajetória, formação acadêmica e competências.
+- **Contato:** formulário Formspree com validação, estados de sucesso/erro e aviso de privacidade.
 
-* Utilizado para estilizar o site de maneira rápida e eficaz com classes utilitárias.
+## Tecnologias
 
-* Permite um design moderno e responsivo, adaptável a diferentes dispositivos.
+**Next.js 16.4.3**, **React 19**, **Node.js 24 LTS**, Tailwind CSS, React Icons, Radix UI e Framer Motion. Aplicação responsiva com suporte a `prefers-reduced-motion`.
 
-## Benefícios do Projeto
-* Profissionalismo: Demonstra sua expertise em tecnologias modernas e sua capacidade de criar projetos de alta qualidade.
+## Desenvolvimento local
 
-* Visibilidade: Aumenta sua presença online e atrai mais oportunidades de trabalho.
+```bash
+git clone https://github.com/AlbericoJr/AlbericoJr-portfolio.git
+cd AlbericoJr-portfolio
+nvm install
+nvm use
+npm ci
+npm run dev
+```
 
-* Facilidade de manutenção: A estrutura do projeto facilita futuras atualizações e adições de novos projetos.
+Abra o endereço indicado no terminal, normalmente http://localhost:3000.
 
-## [Albérico Jr.][def]
+### Verificações
 
-[def]: [P](https://portfolio-albericojr.vercel.app/)
+```bash
+npm run lint
+npm test
+npm run build
+```
 
-![Imagens do Portfolio](public/img_portfolio/home.png)
+## Segurança e manutenção
 
-![Imagens do Portfolio](public/img_portfolio/Serviços.png)
+- Os scripts executam ESLint 9, testes Node.js e build do Next.js via GitHub Actions.
+- O Dependabot verifica dependências e workflows semanalmente.
+- Arquivos `.env` e `.env.*` são ignorados no Git (exceto `.env.example`).
+- A auditoria automatizada agora bloqueia alertas de severidade **moderada ou superior** nas dependências de produção. Reclassificamos `tailwindcss-animate` como dependência de desenvolvimento, o que retirou as bibliotecas de build (`tailwindcss`, `sucrase`, `glob`, `minimatch`) do conjunto de dependências de produção. O teste de auditoria passou após a alteração. Dependências de desenvolvimento ainda exigem acompanhamento contínuo. Antes do merge, revisar resultados do CI e a prévia da Vercel.
 
-![Imagens do Portfolio](public/img_portfolio/Sobre.png)
+## Sobre o contato
 
-![Imagens do Portfolio](public/img_portfolio/projetos.png)
+O formulário está associado a um endpoint do **Formspree**. Antes de publicar para clientes, confirme a propriedade desse formulário, o endereço que recebe respostas, os limites antispam e a política de privacidade. Nenhuma senha ou chave de serviço deve ser armazenada no navegador.
 
-![Imagens do Portfolio](public/img_portfolio/contato.png)
+## Metadados e SEO
+
+Metadados Open Graph, sitemap e robots são gerados pelo App Router. Atualize o domínio nas configurações caso o deploy seja movido.
+
+## Melhorias futuras
+
+- Adicionar estudos de caso completos para projetos principais.
+- Capturar imagens atualizadas dos aplicativos e criar vídeos demonstrativos.
+- Executar auditorias Lighthouse e testes E2E nos navegadores.
+- Atualizar o conteúdo do currículo PDF sempre que a experiência profissional mudar.
+
+## Autor
+
+Albérico Júnior — [LinkedIn](https://www.linkedin.com/in/alberico-junior/) · [GitHub](https://github.com/AlbericoJr)
+
+## Verificação de qualidade visual
+
+Um segundo workflow executa Playwright em navegadores e resoluções diferentes, capturando screenshots e publicando relatórios. O Lighthouse mede a versão de produção compilada em um servidor local no runner. Esses testes não provam a entrega real de e-mails pelo Formspree nem validam dados pessoais do currículo.
+
+## Estudos de caso
+
+As páginas de detalhes destacam problema abordado, arquitetura e recursos documentados dos projetos selecionados. As descrições não apresentam métricas comerciais inventadas.
