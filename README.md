@@ -42,7 +42,7 @@ npm run build
 - Os scripts executam ESLint 9, testes Node.js e build do Next.js via GitHub Actions.
 - O Dependabot verifica dependências e workflows semanalmente.
 - Arquivos `.env` e `.env.*` são ignorados no Git (exceto `.env.example`).
-- A auditoria automatizada bloqueia alertas de severidade alta nas dependências de produção. Na revisão de 02/11/2026, permaneceram três alertas moderados em dependências transitivas (`glob`, `minimatch` e `sucrase`), que exigem acompanhamento. Antes do merge, revisar resultados do CI e a prévia da Vercel.
+- A auditoria automatizada agora bloqueia alertas de severidade **moderada ou superior** nas dependências de produção. Reclassificamos `tailwindcss-animate` como dependência de desenvolvimento, o que retirou as bibliotecas de build (`tailwindcss`, `sucrase`, `glob`, `minimatch`) do conjunto de dependências de produção. O teste de auditoria passou após a alteração. Dependências de desenvolvimento ainda exigem acompanhamento contínuo. Antes do merge, revisar resultados do CI e a prévia da Vercel.
 
 ## Sobre o contato
 

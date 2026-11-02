@@ -16,5 +16,5 @@ jobs:
       - run: npm run lint
       - run: npm test
       - run: npm run build
-      - name: Auditoria de dependências de produção
-        run: npm audit --omit=dev --audit-level=high
+      - name: Auditoria de vulnerabilidades de produção moderadas ou superiores
+        run: npm audit --omit=dev --audit-level=moderate
