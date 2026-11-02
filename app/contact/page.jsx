@@ -1,6 +1,7 @@
 "use client"
 import {useState,Suspense} from "react"
 import {useSearchParams} from "next/navigation"
+import Link from "next/link"
 import {FaEnvelope,FaMapMarkedAlt} from "react-icons/fa"
 const endpoint="https://formspree.io/f/mdknzqra"
 function ContactForm(){
@@ -29,7 +30,7 @@ function ContactForm(){
   <label className="block text-sm font-medium">Assunto *<input key={search.get("assunto")||""} name="subject" required maxLength={120} defaultValue={search.get("assunto")||""} className={field} placeholder="Sobre o que vamos conversar?"/></label>
   <label className="block text-sm font-medium">Mensagem *<textarea name="message" required minLength={10} maxLength={2500} rows={6} className={field+" resize-y"} placeholder="Explique brevemente sua ideia, necessidade ou dúvida."/></label>
   <div className="hidden" aria-hidden="true"><label>Não preencha<input tabIndex={-1} autoComplete="off" name="_gotcha"/></label></div>
-  <p className="text-xs leading-6 text-white/50">Ao enviar, seus dados são processados pelo Formspree para viabilizar a resposta. Não envie senhas nem informações sensíveis.</p>
+  <p className="text-xs leading-6 text-white/50">Ao enviar, seus dados são processados pelo Formspree para viabilizar a resposta. Não envie senhas nem informações sensíveis. <Link href="/privacy" className="underline hover:text-accent">Como os dados são utilizados</Link>.</p>
   <button type="submit" disabled={status.kind==="loading"} className="site-link w-full disabled:cursor-wait disabled:opacity-60">{status.kind==="loading"?"Enviando...":"Enviar mensagem"}</button>
   <p className={(status.kind==="error"?"text-red-300":"text-accent")+" min-h-5 text-sm"} role="status" aria-live="polite">{status.message}</p>
  </form>

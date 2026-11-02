@@ -3,6 +3,7 @@ import {FiArrowUpRight,FiDownload} from "react-icons/fi"
 import Photo from "@/components/Photo"
 import Socials from "@/components/Socials"
 import Stats from "@/components/Stats"
+export const metadata={alternates:{canonical:"/"}}
 export default function Page(){
  return <main id="conteudo">
   <section className="site-shell grid min-h-[65vh] items-center gap-10 py-10 lg:grid-cols-[1.2fr_.8fr] lg:py-20">

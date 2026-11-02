@@ -62,3 +62,11 @@ Metadados Open Graph, sitemap e robots são gerados pelo App Router. Atualize o 
 ## Autor
 
 Albérico Júnior — [LinkedIn](https://www.linkedin.com/in/alberico-junior/) · [GitHub](https://github.com/AlbericoJr)
+
+## Verificação de qualidade visual
+
+Um segundo workflow executa Playwright em navegadores e resoluções diferentes, capturando screenshots e publicando relatórios. O Lighthouse mede a versão de produção compilada em um servidor local no runner. Esses testes não provam a entrega real de e-mails pelo Formspree nem validam dados pessoais do currículo.
+
+## Estudos de caso
+
+As páginas de detalhes destacam problema abordado, arquitetura e recursos documentados dos projetos selecionados. As descrições não apresentam métricas comerciais inventadas.
