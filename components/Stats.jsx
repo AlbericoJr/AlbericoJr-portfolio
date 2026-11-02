@@ -1,53 +1,9 @@
-"use client"
-
-import CountUp from "react-countup"
-
-const stats =[
-  {
-    num: 4,
-    text: "Anos de experiência"
-  },
-  {
-    num: 18,
-    text: "Projetos concluídos"
-  },
-  {
-    num: 12,
-    text: "Tecnologias dominadas"
-  },
-  {
-    num: 700,
-    text: "Commits realizados"
-  },
+import { FiCode, FiSmartphone, FiUsers } from "react-icons/fi"
+const values=[
+ {Icon:FiCode,title:"Desenvolvimento web",description:"React, Next.js e interfaces responsivas"},
+ {Icon:FiSmartphone,title:"Aplicações mobile",description:"React Native e Expo"},
+ {Icon:FiUsers,title:"Colaboração",description:"Visão de produto, comunicação e aprendizado contínuo"}
 ]
-const Stats = () => {
-  return (
-    <section className="pt-4 pb-12 xl:pt-0 xl:pb-0">
-      <div className="container mx-auto">
-        <div className="flex flex-wrap gap-6 max-w-[80vw] mx-auto xl:max-w-none">
-          {stats.map((item, index) => {
-            return(
-              <div
-              className="flex-1 flex gap-3 items-center justify-center xl:justify-start" 
-                key={index}
-              >
-                <CountUp
-                  end={item.num}
-                  duration={5}
-                  delay={2}
-                  className="text-4xl xl:text-6xl font-extrabold"
-                />
-                <p className={`${item.text.length < 15 ? "max-w-[100px]" : "max-w-[150px]"} leading-snug text-white/80`}
-                >
-                  {item.text}
-                </p>
-              </div>
-            )
-          })}
-        </div>
-      </div>
-    </section>
-  )
+export default function Stats(){
+ return <section aria-label="Áreas de atuação" className="site-shell grid gap-4 pb-14 pt-5 md:grid-cols-3">{values.map(({Icon,title,description})=><div key={title} className="site-card flex items-start gap-4 p-5"><Icon size={24} className="mt-1 shrink-0 text-accent" aria-hidden="true"/><div><h2 className="font-semibold">{title}</h2><p className="mt-1 text-sm text-white/60">{description}</p></div></div>)}</section>
 }
-
-export default Stats

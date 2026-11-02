@@ -1,49 +1,8 @@
 "use client"
-
 import Link from "next/link"
-import { usePathname } from "next/navigation"
-
-const links = [
-  {
-    name: "home",
-    path: "/",
-  },
-  {
-    name: "serviços",
-    path: "/services",
-  },
-  {
-    name: "formação",
-    path: "/resume",
-  },
-  {
-    name: "projetos",
-    path: "/work",
-  },
-  {
-    name: "contato",
-    path: "/contact",
-  },
-]
-
-const Nav = () => {
-  const pathname = usePathname();
-
-  return (
-    <nav className="flex gap-8">
-      {links.map((link, index) => {
-        return (
-          <Link 
-            key={index} 
-            href={link.path} 
-            className={`${link.path === pathname && "text-accent border-b-2 border-accent"} capitalize font-medium hover:text-accent transition-all`}
-          >
-            {link.name}
-          </Link>
-        )
-      })}
-    </nav>
-  )
+import {usePathname} from "next/navigation"
+const links=[{name:"Início",path:"/"},{name:"Serviços",path:"/services"},{name:"Experiência",path:"/resume"},{name:"Projetos",path:"/work"},{name:"Contato",path:"/contact"}]
+export default function Nav(){
+ const pathname=usePathname()
+ return <nav aria-label="Navegação principal" className="flex gap-7">{links.map(link=><Link key={link.path} href={link.path} aria-current={pathname===link.path?"page":undefined} className={(pathname===link.path?"border-b-2 border-accent text-accent":"text-white")+" font-medium transition-colors hover:text-accent"}>{link.name}</Link>)}</nav>
 }
-
-export default Nav

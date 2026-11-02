@@ -1,302 +1,37 @@
-"use client"
+import Link from "next/link"
+import {FiArrowUpRight,FiBriefcase,FiBookOpen,FiCode} from "react-icons/fi"
+export const metadata={title:"Experiência e formação",description:"Conheça a trajetória profissional, formação e tecnologias de Albérico Júnior."}
 
-import { FaHtml5, FaCss3, FaJs, FaReact, FaFigma, FaNodeJs, FaSass, FaPython, FaBootstrap, FaAws } from "react-icons/fa"
-import {FaGolang} from "react-icons/fa6"
-import { SiTypescript, SiTailwindcss, SiNextdotjs } from "react-icons/si"
-
-const about = {
-  title: "Sobre mim",
-  description: "Sou Alberico Junior, desenvolvedor Front-End com mais de 4 anos de experiência, apaixonado por criar soluções web intuitivas e funcionais. Com habilidades em diversas tecnologias, estou disponível para projetos freelance.",
-  info: [
-    {
-      fieldName: "Name",
-      fieldValue: "Albérico Junior",
-    },
-    {
-      fieldName: "Experiência",
-      fieldValue: "4+ anos",
-    },
-    {
-      fieldName: "Nacionalidade",
-      fieldValue: "Brasileiro ",
-    },
-    {
-      fieldName: "E-mail",
-      fieldValue: "alberico14@live.com",
-    },
-    {
-      fieldName: "Freelance",
-      fieldValue: "Disponível",
-    },
-    {
-      fieldName: "Idiomas",
-      fieldValue: "Inglês, Espanhol",
-    },
-  ]
+const experience=[
+ {place:"UNINASSAU",position:"Assistente de EAD",period:"Desde dez. 2025"},
+ {place:"Atesteme",position:"Desenvolvedor Front-end · Prestação de serviços",period:"Out. – dez. 2024"},
+ {place:"G.Bombons",position:"Vendedor",period:"2014 – 2022"},
+ {place:"Contax",position:"Atendimento",period:"2011 – 2013"},
+]
+const education=[
+ {place:"UNIFG",course:"Bacharelado em Sistemas de Informação",period:"Em andamento"},
+ {place:"Secretaria de Educação de Pernambuco",course:"Formação técnica em desenvolvimento de sistemas",period:"2019 – 2021"},
+ {place:"UNIBRA",course:"Gestão de Recursos Humanos",period:"2011 – 2013"},
+]
+const stacks={
+ "Front-end":["HTML","CSS","JavaScript","TypeScript","React","Next.js","Tailwind CSS"],
+ "Mobile":["React Native","Expo"],
+ "Back-end e dados":["Node.js","Express","MongoDB"],
+ "Ferramentas":["Git","GitHub","Figma","Vite"]
 }
-
-// experienciar
-const experience ={
-  icon: "/assets/formacao/badge.svg",
-  title: "Minha experiência",
-  description: "Sou um Desenvolvedor dedicado com experiência em administração de software e desenvolvimento web, especializado em HTML, CSS, JavaScript, React, e mais. Com sólida formação em Gestão de Pessoas e em andamento em Sistemas de Informação, destacando-se na criação de interfaces interativas e responsivas e de Apps Mobile.",
-  items: [
-    {
-      company: "UNINASSAU",
-      position: "Assistente de EAD",
-      duration: " 12/2025 - Atualmente"
-    },
-    {
-      company: "Atesteme",
-      position: "Desenvolvedor front-end | prestador de serviços",
-      duration: " 10/2024 - 12/2024"
-    },
-    {
-      company: "G.Bombons",
-      position: "Vendedor",
-      duration: " 2014 - 2022"
-    },
-    {
-      company: "Contax",
-      position: "Atendente de Telemarketing",
-      duration: " 2011 - 2013"
-    },
-  ]
-}
-
-// edução
-const education = {
-  icon: "/assets/formacao/cap.svg",
-  title: "Minha Formação",	
-  description: "Sou graduado em Gestão de Recursos Humanos pela Unibra, concluída em 2013, e em Técnico em Desenvolvimento de Sistemas pela Secretaria de Educação de Pernambuco, finalizado em 2021. Atualmente, estou cursando o 8º período de Sistemas de Informação na UNIFG, com previsão de conclusão em 2026, focado em aprimorar meus conhecimentos.",
-  items: [
-    {
-      institution: "UNIFG",
-      degree: "Sistema de Informação",
-      duration: " Cursando"
-    },
-    {
-      institution: "Secretaria de Educação de PE",
-      degree: "Tec. Desenvolvimento de Sistema",
-      duration: " 2019 - 2021"
-    },
-    {
-      institution: "Unibra",
-      degree: "Gestão de Recursos Humanos",
-      duration: " 2011 - 2013"
-    },
-  ]
-}
-
-// skills
-const skills = {
-  title: "Minhas Skills",
-  description: "Minhas habilidades abrangem uma ampla gama de tecnologias e ferramentas essenciais para o desenvolvimento Front-End e Mobile.",
-  skillList:[
-    {
-      icon: <FaHtml5 />,
-      name: "html 5",
-    },
-    {
-      icon: <FaCss3 />,
-      name: "css 3",
-    },
-    {
-      icon: <FaJs />,
-      name: "javascript",
-    },
-    {
-      icon: <FaBootstrap />,
-      name: "bootstrap",
-    },
-    {
-      icon: <FaSass />,
-      name: "sass",
-    },
-    {
-      icon: <SiTypescript />,
-      name: "typescript",
-    },
-    {
-      icon: <FaReact />,
-      name: "React.js",
-    },
-    {
-      icon: <SiNextdotjs />,
-      name: "next.js",
-    },
-    {
-      icon: <SiTailwindcss />,
-      name: "tailwind.css",
-    },
-    {
-      icon: <FaReact />,
-      name: "React Native",
-    },
-    {
-      icon: <FaNodeJs />,
-      name: "node.js",
-    },
-    {
-      icon: <FaPython />,
-      name: "python",
-    },
-    {
-      icon: <FaGolang />,
-      name: "Go",
-    },
-    {
-      icon: <FaAws />,
-      name: "aws",
-    },
-    {
-      icon: <FaFigma />,
-      name: "figma",
-    },
-  ]
-}
-
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
-
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@radix-ui/react-tooltip"
-
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { motion } from "framer-motion"
-
-const Resume = () => {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{
-        opacity: 1,
-        transition: {
-          delay: 2.4,
-          duration: 0.4,
-          ease: "easeIn",
-        },
-      }}
-      className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0"
-    >
-      <div className="container mx-auto">
-        <Tabs
-          defaultValue="experience"
-          className="flex flex-col xl:flex-row gap-[60px]"
-        >
-          <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
-            <TabsTrigger value="experience">Experiencia</TabsTrigger>
-            <TabsTrigger value="education">Formação</TabsTrigger>
-            <TabsTrigger value="skills">Skills</TabsTrigger>
-            <TabsTrigger value="about">Sobre mim</TabsTrigger>
-          </TabsList>
-
-          <div className="min-h-[70vh] w-full mb-7">
-            <TabsContent value="experience" className="w-full">
-              <div className="flex flex-col gap-[30px] text-center xl:text-left">
-                <h3 className="text-4xl font-bold">{experience.title}</h3>
-                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
-                {experience.description}
-              </p>
-              <ScrollArea className="h-[400px]">
-                <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
-                  {experience.items.map((item, index) => {
-                    return(
-                      <li key={index} className="bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1">
-                        <span className="text-accent">{item.duration}</span>
-                        <h3 className="text-xl mx-w-[260px] min-h-[60px] text-center lg:text-left">{item.position}</h3>
-                        <div className="flex items-center gap-3 mt-4">
-                          <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
-                          <p className="text-white/60">{item.company}</p>
-                        </div>
-                      </li>
-                    )
-                  })}
-                </ul>
-              </ScrollArea>
-              </div>
-            </TabsContent>
-
-            <TabsContent value="education" className="w-full">
-            <div className="flex flex-col gap-[30px] text-center xl:text-left">
-                <h3 className="text-4xl font-bold">{education.title}</h3>
-                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
-                {education.description}
-              </p>
-              <ScrollArea className="h-[400px]">
-                <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
-                  {education.items.map((item, index) => {
-                    return(
-                      <li key={index} className="bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1">
-                        <span className="text-accent">{item.duration}</span>
-                        <h3 className="text-xl mx-w-[260px] min-h-[60px] text-center lg:text-left">{item.degree}</h3>
-                        <div className="flex items-center gap-3">
-                          <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
-                          <p className="text-white/60">{item.institution}</p>
-                        </div>
-                      </li>
-                    )
-                  })}
-                </ul>
-              </ScrollArea>
-              </div>
-            </TabsContent>
-
-            <TabsContent value="skills" className="w-full h-full">
-              <div className="flex flex-col gap-[30px]">
-                <div className="flex flex-col gap-[30px] text-center xl:text-left">
-                  <h3 className="text-4xl font-bold">{skills.title}</h3>
-                  <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
-                    {skills.description}
-                  </p>
-                </div>
-                <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]">
-                  {skills.skillList.map((skill, index) => {
-                    return(
-                      <li key={index}>
-                        <TooltipProvider delayDuration={100}>
-                          <Tooltip>
-                            <TooltipTrigger className="w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group">
-                              <div className="text-6xl group-hover:text-accent transition-all duration-300">
-                                {skill.icon}
-                              </div>
-                            </TooltipTrigger>
-                            <TooltipContent>
-                              <p className="capitalize">{skill.name}</p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
-                      </li>
-                    )
-                  })}
-                </ul>
-              </div>
-            </TabsContent>
-
-            <TabsContent value="about" className="w-full text-center xl:text-left">
-              <div className="flex flex-col gap-[30px]">
-                <h3 className="text-4xl font-bold">{about.title}</h3>
-                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
-                  {about.description}
-                </p>
-                <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[620px] mx-auto xl:mx-0">
-                  {about.info.map((item, index) => {
-                    return(
-                      <li 
-                        key={index} 
-                        className="flex items-center justify-center xl:justify-start gap-4"
-                      >
-                        <span className="text-white/60">{item.fieldName}</span>
-                        <span className="text-xl">{item.fieldValue}</span>
-                      </li>
-                    )
-                  })}
-                </ul>
-              </div>
-            </TabsContent>
-          </div>
-        </Tabs>
-      </div>
-    </motion.div>
-  )
-}
-
-export default Resume
+export default function Resume(){
+return <main id="conteudo" className="site-shell py-14 sm:py-20">
+ <p className="text-sm font-semibold uppercase tracking-widest text-accent">Minha trajetória</p>
+ <h1 className="h2 mt-3">Experiência, formação e competências</h1>
+ <p className="mt-5 max-w-3xl text-white/70">Sou desenvolvedor focado em Front-end e Mobile e estudo Sistemas de Informação. Minha formação em Gestão de Recursos Humanos complementa habilidades de comunicação e colaboração.</p>
+ <div className="mt-12 grid gap-10 lg:grid-cols-2">
+   <section aria-labelledby="exp-title"><h2 id="exp-title" className="mb-6 flex items-center gap-3 text-2xl font-bold"><FiBriefcase className="text-accent"/> Experiência profissional</h2>
+   <ol className="space-y-4">{experience.map(item=><li key={item.place+item.period} className="site-card p-5"><span className="text-xs text-accent">{item.period}</span><h3 className="mt-2 text-lg font-bold">{item.position}</h3><p className="mt-1 text-white/60">{item.place}</p></li>)}</ol></section>
+   <section aria-labelledby="edu-title"><h2 id="edu-title" className="mb-6 flex items-center gap-3 text-2xl font-bold"><FiBookOpen className="text-accent"/> Formação</h2>
+   <ol className="space-y-4">{education.map(item=><li key={item.place} className="site-card p-5"><span className="text-xs text-accent">{item.period}</span><h3 className="mt-2 text-lg font-bold">{item.course}</h3><p className="mt-1 text-white/60">{item.place}</p></li>)}</ol></section>
+ </div>
+ <section aria-labelledby="stack-title" className="mt-16"><h2 id="stack-title" className="flex items-center gap-3 text-2xl font-bold"><FiCode className="text-accent"/> Tecnologias e ferramentas</h2><p className="mt-3 text-sm text-white/55">Experiência em projetos e estudos; os níveis de domínio variam por ferramenta.</p>
+  <div className="mt-6 grid gap-5 md:grid-cols-2">{Object.entries(stacks).map(([group,items])=><div key={group} className="site-card p-6"><h3 className="mb-4 text-lg font-semibold">{group}</h3><ul className="flex flex-wrap gap-2">{items.map(item=><li key={item} className="rounded-lg border border-white/15 bg-primary px-3 py-2 text-sm">{item}</li>)}</ul></div>)}</div>
+ </section>
+ <div className="mt-12 flex flex-wrap gap-3"><Link href="/work" className="site-link">Conhecer meus projetos <FiArrowUpRight/></Link><Link href="/contact" className="inline-flex items-center rounded-xl border border-white/25 px-6 py-3 hover:border-accent hover:text-accent">Entrar em contato</Link></div>
+</main>}
