@@ -42,7 +42,7 @@ npm run build
 - Os scripts executam ESLint 9, testes Node.js e build do Next.js via GitHub Actions.
 - O Dependabot verifica dependências e workflows semanalmente.
 - Arquivos `.env` e `.env.*` são ignorados no Git (exceto `.env.example`).
-- Antes do merge, revisar alertas de segurança, resultado dos testes e a prévia da Vercel.
+- A auditoria automatizada bloqueia alertas de severidade alta nas dependências de produção. Na revisão de 02/11/2026, permaneceram três alertas moderados em dependências transitivas (`glob`, `minimatch` e `sucrase`), que exigem acompanhamento. Antes do merge, revisar resultados do CI e a prévia da Vercel.
 
 ## Sobre o contato
 
