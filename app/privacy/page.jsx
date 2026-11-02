@@ -11,6 +11,6 @@ export default function Privacy(){
    <div><h2 className="text-xl font-bold text-white">Solicitações sobre seus dados</h2><p className="mt-2">Para solicitar informações, correção ou exclusão de uma mensagem enviada, entre em contato por <a className="text-accent underline" href="mailto:alberico14@live.com">alberico14@live.com</a>. O atendimento dependerá da identificação da mensagem e das condições da plataforma de processamento.</p></div>
    <div><h2 className="text-xl font-bold text-white">Sobre esta página</h2><p className="mt-2">Este é um resumo informativo do fluxo de contato implementado; não substitui a conferência das políticas de retenção, segurança e privacidade da conta que recebe os dados.</p></div>
   </section>
-  <Link href="/contact" className="site-link mt-10">Voltar ao contato</Link>
+  <Link prefetch={false} href="/contact" className="site-link mt-10">Voltar ao contato</Link>
  </main>
 }

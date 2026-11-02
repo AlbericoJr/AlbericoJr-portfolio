@@ -14,7 +14,7 @@ export default function MobileNav() {
       <SheetTitle className="mt-14 text-center text-2xl text-white">Albérico <span className="text-accent">Jr.</span></SheetTitle>
       <SheetDescription className="text-center text-white/60">Navegação do portfólio</SheetDescription>
       <nav aria-label="Navegação mobile" className="mt-10 flex flex-col items-center gap-7">
-        {links.map(link=><Link key={link.path} onClick={()=>setOpen(false)} href={link.path} aria-current={pathname===link.path?"page":undefined} className={(pathname===link.path?"border-b-2 border-accent text-accent":"text-white")+" capitalize text-lg hover:text-accent"}>{link.name}</Link>)}
+        {links.map(link=><Link prefetch={false} key={link.path} onClick={()=>setOpen(false)} href={link.path} aria-current={pathname===link.path?"page":undefined} className={(pathname===link.path?"border-b-2 border-accent text-accent":"text-white")+" capitalize text-lg hover:text-accent"}>{link.name}</Link>)}
       </nav>
     </SheetContent>
   </Sheet>

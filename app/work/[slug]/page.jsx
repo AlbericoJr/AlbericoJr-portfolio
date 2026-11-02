@@ -13,7 +13,7 @@ export default async function ProjectDetail({params}){
  if(!p)notFound()
  const study=caseStudies[p.slug]
  return <main id="conteudo" className="site-shell max-w-5xl py-14 sm:py-20">
- <Link href="/work" className="mb-8 inline-flex items-center gap-2 text-sm text-accent hover:underline"><FiArrowLeft aria-hidden="true"/> Voltar aos projetos</Link>
+ <Link prefetch={false} href="/work" className="mb-8 inline-flex items-center gap-2 text-sm text-accent hover:underline"><FiArrowLeft aria-hidden="true"/> Voltar aos projetos</Link>
  <p className="text-sm font-semibold uppercase tracking-widest text-accent">{p.role}</p><h1 className="h2 mt-3">{p.title}</h1><p className="mt-5 max-w-3xl text-lg text-white/70">{p.description}</p>
  <div className="relative mt-10 flex h-[280px] items-center justify-center overflow-hidden rounded-2xl bg-[#27272c] sm:h-[460px]">{p.image?<Image src={p.image} alt={"Imagem do projeto "+p.title} fill sizes="(max-width:768px) 100vw,960px" className="object-contain"/>:<strong className="text-5xl text-accent">{p.title}</strong>}</div>
  <div className="mt-10 grid gap-6 md:grid-cols-2">

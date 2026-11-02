@@ -12,8 +12,8 @@ export default function Page(){
       <h1 className="h1 mb-6">Olá! Eu sou <span className="text-accent">Albérico Júnior.</span></h1>
       <p className="mb-8 max-w-[640px] text-base leading-relaxed text-white/70">Desenvolvo aplicações web e mobile com React, Next.js, TypeScript e React Native. Gosto de criar interfaces acessíveis, transformar ideias em produtos e resolver problemas com código.</p>
       <div className="flex flex-wrap justify-center gap-3 lg:justify-start">
-        <Link href="/work" className="site-link">Explorar projetos <FiArrowUpRight aria-hidden="true"/></Link>
-        <Link href="/contact" className="inline-flex items-center rounded-xl border border-white/30 px-6 py-3 font-semibold transition-colors hover:border-accent hover:text-accent">Entrar em contato</Link>
+        <Link prefetch={false} href="/work" className="site-link">Explorar projetos <FiArrowUpRight aria-hidden="true"/></Link>
+        <Link prefetch={false} href="/contact" className="inline-flex items-center rounded-xl border border-white/30 px-6 py-3 font-semibold transition-colors hover:border-accent hover:text-accent">Entrar em contato</Link>
         <a href="/Alb%C3%A9rico_Jr.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl px-3 py-3 text-sm text-white/75 hover:text-accent" aria-label="Abrir currículo em PDF">Currículo <FiDownload aria-hidden="true"/></a>
       </div>
       <div className="mt-8 flex justify-center lg:justify-start"><Socials containerStyles="flex gap-4" iconStyles="flex h-10 w-10 items-center justify-center rounded-full border border-accent text-accent transition-colors hover:bg-accent hover:text-primary"/></div>
