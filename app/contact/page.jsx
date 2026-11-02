@@ -1,5 +1,5 @@
 "use client"
-import {useState} from "react"
+import {useState,Suspense} from "react"
 import {useSearchParams} from "next/navigation"
 import {FaEnvelope,FaMapMarkedAlt} from "react-icons/fa"
 const endpoint="https://formspree.io/f/mdknzqra"
@@ -37,5 +37,5 @@ function ContactForm(){
 export default function Contact(){return <main id="conteudo" className="site-shell py-14 sm:py-20"><div className="grid gap-10 lg:grid-cols-[.7fr_1.3fr]">
  <section><p className="text-sm font-semibold uppercase tracking-widest text-accent">Contato</p><h1 className="h2 mt-4">Vamos criar algo juntos?</h1><p className="mt-6 text-white/65">Projetos, oportunidades profissionais e colaborações. Entre em contato para conversarmos sobre sua ideia.</p>
  <div className="mt-10 space-y-6"><a className="flex items-center gap-4 text-white/80 hover:text-accent" href="mailto:alberico14@live.com"><FaEnvelope className="text-accent" aria-hidden="true"/> alberico14@live.com</a><p className="flex items-center gap-4 text-white/70"><FaMapMarkedAlt className="text-accent" aria-hidden="true"/> Pernambuco, Brasil</p></div></section>
- <ContactForm/>
+ <Suspense fallback={<p className="text-white/60">Carregando formulário...</p>}><ContactForm/></Suspense>
  </div></main>}

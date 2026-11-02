@@ -1,35 +1,55 @@
+# Portfólio — Albérico Júnior
 
-# Albérico Jr. Portfolio
+Portfólio profissional de **desenvolvimento Front-end e Mobile**, com projetos em React, Next.js, TypeScript e React Native.
 
-Este portfólio foi desenvolvido utilizando Next.js e Tailwind CSS, proporcionando uma experiência de usuário fluida e visualmente atraente em diversos dispositivos.
+**Site:** https://albericojr-portfolio-xi.vercel.app/
 
-## Tecnologias Utilizadas
-### Next.js
-* Garante um desempenho excepcional e otimizado para SEO, facilitando a indexação do seu trabalho pelos mecanismos de busca.
+## Principais páginas
 
-### Tailwind CSS
+- **Início:** apresentação, especialidades, links profissionais e currículo.
+- **Projetos:** galeria com filtros Web, Mobile e Estudos; links para GitHub e demonstrações disponíveis.
+- **Serviços:** desenvolvimento web, mobile, interfaces e manutenção.
+- **Experiência:** trajetória, formação acadêmica e competências.
+- **Contato:** formulário Formspree com validação, estados de sucesso/erro e aviso de privacidade.
 
-* Utilizado para estilizar o site de maneira rápida e eficaz com classes utilitárias.
+## Tecnologias
 
-* Permite um design moderno e responsivo, adaptável a diferentes dispositivos.
+Next.js, React, Tailwind CSS, React Icons, Radix UI e Framer Motion. Aplicação responsiva com suporte a `prefers-reduced-motion`.
 
-## Benefícios do Projeto
-* Profissionalismo: Demonstra sua expertise em tecnologias modernas e sua capacidade de criar projetos de alta qualidade.
+## Desenvolvimento local
 
-* Visibilidade: Aumenta sua presença online e atrai mais oportunidades de trabalho.
+```bash
+git clone https://github.com/AlbericoJr/AlbericoJr-portfolio.git
+cd AlbericoJr-portfolio
+npm ci
+npm run dev
+```
 
-* Facilidade de manutenção: A estrutura do projeto facilita futuras atualizações e adições de novos projetos.
+Abra o endereço indicado no terminal, normalmente http://localhost:3000.
 
-## [Albérico Jr.][def]
+### Verificações
 
-[def]: [P](https://portfolio-albericojr.vercel.app/)
+```bash
+npm run lint
+npm test
+npm run build
+```
 
-![Imagens do Portfolio](public/img_portfolio/home.png)
+## Sobre o contato
 
-![Imagens do Portfolio](public/img_portfolio/Serviços.png)
+O formulário está associado a um endpoint do **Formspree**. Antes de publicar para clientes, confirme a propriedade desse formulário, o endereço que recebe respostas, os limites antispam e a política de privacidade. Nenhuma senha ou chave de serviço deve ser armazenada no navegador.
 
-![Imagens do Portfolio](public/img_portfolio/Sobre.png)
+## Metadados e SEO
 
-![Imagens do Portfolio](public/img_portfolio/projetos.png)
+Metadados Open Graph, sitemap e robots são gerados pelo App Router. Atualize o domínio nas configurações caso o deploy seja movido.
 
-![Imagens do Portfolio](public/img_portfolio/contato.png)
+## Melhorias futuras
+
+- Adicionar estudos de caso completos para projetos principais.
+- Capturar imagens atualizadas dos aplicativos e criar vídeos demonstrativos.
+- Executar auditorias Lighthouse e testes E2E nos navegadores.
+- Atualizar o conteúdo do currículo PDF sempre que a experiência profissional mudar.
+
+## Autor
+
+Albérico Júnior — [LinkedIn](https://www.linkedin.com/in/alberico-junior/) · [GitHub](https://github.com/AlbericoJr)

@@ -2,7 +2,7 @@
 import {useState} from "react"
 import Image from "next/image"
 import {FiArrowUpRight,FiGithub} from "react-icons/fi"
-import {projects,categories} from "@/lib/projects"
+import {projects,categories} from "@/lib/projects.mjs"
 
 export default function Work(){
  const [filter,setFilter]=useState("Todos")
