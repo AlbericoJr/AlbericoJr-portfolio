@@ -20,9 +20,9 @@ Este portfólio foi desenvolvido utilizando Next.js e Tailwind CSS, proporcionan
 
 * Facilidade de manutenção: A estrutura do projeto facilita futuras atualizações e adições de novos projetos.
 
-## [Albérico Jr.][def]
+## 🌐 Demonstração
 
-[def]: [P](https://portfolio-albericojr.vercel.app/)
+[Visitar portfólio](https://albericojr-portfolio-xi.vercel.app/)
 
 ![Imagens do Portfolio](public/img_portfolio/home.png)
 
@@ -33,3 +33,14 @@ Este portfólio foi desenvolvido utilizando Next.js e Tailwind CSS, proporcionan
 ![Imagens do Portfolio](public/img_portfolio/projetos.png)
 
 ![Imagens do Portfolio](public/img_portfolio/contato.png)
+
+## Executar localmente
+
+```bash
+git clone https://github.com/AlbericoJr/AlbericoJr-portfolio.git
+cd AlbericoJr-portfolio
+npm ci
+npm run dev
+```
+
+Confira os scripts e a versão de Node.js necessários em `package.json`. Não envie arquivos de ambiente com credenciais para o GitHub.
