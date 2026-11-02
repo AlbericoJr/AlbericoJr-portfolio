@@ -24,3 +24,12 @@
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+/* Lightweight motion without JavaScript hydration */
+@keyframes portfolioOrbit { to { transform: rotate(360deg); } }
+@keyframes portfolioEnter { from {opacity:0;transform:translateY(8px)} to {opacity:1;transform:translateY(0)} }
+.portfolio-orbit { animation: portfolioOrbit 35s linear infinite; }
+.portfolio-page-enter { animation: portfolioEnter .22s ease-out both; }
+@media (prefers-reduced-motion: reduce) {
+ .portfolio-orbit, .portfolio-page-enter { animation: none !important; }
+}
