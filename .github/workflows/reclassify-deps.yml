@@ -1,0 +1,34 @@
+name: Ajustar dependências de build (temporário)
+on:
+  push:
+    branches: [feat/modernizacao-portfolio-2026]
+permissions:
+  contents: write
+jobs:
+  correct:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: '.nvmrc'
+          cache: npm
+      - name: Regerar lockfile
+        run: npm install --package-lock-only --no-audit --no-fund
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+      - name: Bloquear vulnerabilidades de produção
+        run: npm audit --omit=dev --audit-level=moderate
+      - name: Salvar lockfile sincronizado
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package-lock.json
+          if ! git diff --cached --quiet; then
+            git commit -m "fix(deps): classify Tailwind animation plugin as dev-only [skip ci]"
+            git push origin HEAD:feat/modernizacao-portfolio-2026
+          fi
