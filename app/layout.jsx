@@ -12,7 +12,6 @@ export const metadata = {
   metadataBase: new URL(website),
   title: { default: "Albérico Júnior | Desenvolvedor Front-end & Mobile", template: "%s | Albérico Júnior" },
   description: "Desenvolvedor Front-end e Mobile. Projetos com React, Next.js, TypeScript e React Native. Conheça meu portfólio e entre em contato.",
-  alternates: { canonical: "/" },
   openGraph: {
     title: "Albérico Júnior | Desenvolvedor Front-end & Mobile",
     description: "Interfaces web, aplicações mobile e projetos reais em React, Next.js e React Native.",

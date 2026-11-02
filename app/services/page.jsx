@@ -1,6 +1,6 @@
 import Link from "next/link"
 import {FiArrowUpRight,FiCode,FiSmartphone,FiLayout,FiTool} from "react-icons/fi"
-export const metadata={title:"Serviços",description:"Desenvolvimento de websites, interfaces e aplicações mobile com React e React Native."}
+export const metadata={title:"Serviços",description:"Desenvolvimento de websites, interfaces e aplicações mobile com React e React Native.",alternates:{canonical:"/services"}}
 const services=[
  {Icon:FiCode,title:"Desenvolvimento web",description:"Landing pages, portfólios e websites responsivos com foco em organização, desempenho e comunicação da sua marca."},
  {Icon:FiLayout,title:"Interfaces e UX/UI",description:"Planejamento e implementação de interfaces claras, acessíveis e adaptadas a diferentes telas."},

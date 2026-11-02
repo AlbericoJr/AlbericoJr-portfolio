@@ -1,6 +1,7 @@
 "use client"
 import {useState} from "react"
 import Image from "next/image"
+import Link from "next/link"
 import {FiArrowUpRight,FiGithub} from "react-icons/fi"
 import {projects,categories} from "@/lib/projects.mjs"
 
@@ -22,7 +23,7 @@ export default function Work(){
       <h2 className="mt-3 text-2xl font-bold">{p.title}</h2><p className="mt-3 flex-1 text-sm leading-7 text-white/65">{p.description}</p>
       <ul aria-label={"Tecnologias do projeto "+p.title} className="mt-5 flex flex-wrap gap-2">{p.stack.map(t=><li key={t} className="rounded bg-white/10 px-2.5 py-1 text-xs text-white/80">{t}</li>)}</ul>
       <div className="mt-6 flex flex-wrap gap-3 border-t border-white/10 pt-5">
-       <a href={"/work/"+p.slug} className="inline-flex items-center rounded-lg border border-accent/60 px-4 py-2 text-sm font-semibold text-accent hover:bg-accent hover:text-primary" aria-label={"Ver detalhes do projeto "+p.title}>Detalhes</a>
+       <Link href={"/work/"+p.slug} className="inline-flex items-center rounded-lg border border-accent/60 px-4 py-2 text-sm font-semibold text-accent hover:bg-accent hover:text-primary" aria-label={"Ver detalhes do projeto "+p.title}>Detalhes</Link>
        <a href={p.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg border border-white/25 px-4 py-2 text-sm font-semibold hover:border-accent hover:text-accent" aria-label={"Ver código do projeto "+p.title}><FiGithub aria-hidden="true"/> Código</a>
        {p.live&&<a href={p.live} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-primary hover:bg-accent-hover" aria-label={"Ver demonstração de "+p.title}>Demo <FiArrowUpRight aria-hidden="true"/></a>}
       </div></div>

@@ -1,6 +1,6 @@
 import Link from "next/link"
 import {FiArrowUpRight,FiBriefcase,FiBookOpen,FiCode} from "react-icons/fi"
-export const metadata={title:"Experiência e formação",description:"Conheça a trajetória profissional, formação e tecnologias de Albérico Júnior."}
+export const metadata={title:"Experiência e formação",description:"Conheça a trajetória profissional, formação e tecnologias de Albérico Júnior.",alternates:{canonical:"/resume"}}
 
 const experience=[
  {place:"UNINASSAU",position:"Assistente de EAD",period:"Desde dez. 2025"},

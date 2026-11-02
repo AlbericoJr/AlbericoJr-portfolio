@@ -16,3 +16,6 @@ jobs:
       - run: npm run lint
       - run: npm test
       - run: npm run build
+      - name: Auditoria de dependências de produção
+        run: npm audit --omit=dev --audit-level=high
+        continue-on-error: true

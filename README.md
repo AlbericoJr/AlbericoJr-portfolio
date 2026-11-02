@@ -7,20 +7,22 @@ Portfólio profissional de **desenvolvimento Front-end e Mobile**, com projetos 
 ## Principais páginas
 
 - **Início:** apresentação, especialidades, links profissionais e currículo.
-- **Projetos:** galeria com filtros Web, Mobile e Estudos; links para GitHub e demonstrações disponíveis.
+- **Projetos:** galeria com filtros Web, Mobile e Estudos, páginas individuais com resumos técnicos e links para repositórios/demonstrações.
 - **Serviços:** desenvolvimento web, mobile, interfaces e manutenção.
 - **Experiência:** trajetória, formação acadêmica e competências.
 - **Contato:** formulário Formspree com validação, estados de sucesso/erro e aviso de privacidade.
 
 ## Tecnologias
 
-Next.js, React, Tailwind CSS, React Icons, Radix UI e Framer Motion. Aplicação responsiva com suporte a `prefers-reduced-motion`.
+**Next.js 16.4.3**, **React 19**, **Node.js 24 LTS**, Tailwind CSS, React Icons, Radix UI e Framer Motion. Aplicação responsiva com suporte a `prefers-reduced-motion`.
 
 ## Desenvolvimento local
 
 ```bash
 git clone https://github.com/AlbericoJr/AlbericoJr-portfolio.git
 cd AlbericoJr-portfolio
+nvm install
+nvm use
 npm ci
 npm run dev
 ```
@@ -34,6 +36,13 @@ npm run lint
 npm test
 npm run build
 ```
+
+## Segurança e manutenção
+
+- Os scripts executam ESLint 9, testes Node.js e build do Next.js via GitHub Actions.
+- O Dependabot verifica dependências e workflows semanalmente.
+- Arquivos `.env` e `.env.*` são ignorados no Git (exceto `.env.example`).
+- Antes do merge, revisar alertas de segurança, resultado dos testes e a prévia da Vercel.
 
 ## Sobre o contato
 
