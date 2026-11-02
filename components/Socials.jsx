@@ -1,26 +1,13 @@
 import Link from "next/link"
+import { FaGithub, FaLinkedinIn, FaDev } from "react-icons/fa"
 
-import { FaGithub, FaLinkedinIn, FaInstagram, FaDev } from "react-icons/fa"
-
-const socials = [
-  { icon: <FaGithub />, path: "https://github.com/AlbericoJr" },
-  { icon: <FaLinkedinIn />, path: "https://www.linkedin.com/in/alberico-junior/" },
-  // { icon: <FaInstagram />, path: "https://www.instagram.com/dev.junior_/" },
-  { icon: <FaDev />, path: "https://dev.to/albericojr" },
+const socialLinks = [
+  {icon:FaGithub,name:"GitHub",href:"https://github.com/AlbericoJr"},
+  {icon:FaLinkedinIn,name:"LinkedIn",href:"https://www.linkedin.com/in/alberico-junior/"},
+  {icon:FaDev,name:"Dev.to",href:"https://dev.to/albericojr"},
 ]
-
-const Socials = ({ containerSyles, iconStyles }) => {
-  return (
-    <div className={containerSyles}>
-      {socials.map((item, index) => {
-        return (
-          <Link key={index} href={item.path} target="_blank" className={iconStyles}>
-            {item.icon}
-          </Link>
-        )
-      })}
-    </div>
-  )
+export default function Socials({containerStyles="",iconStyles=""}) {
+  return <nav aria-label="Redes profissionais" className={containerStyles}>
+    {socialLinks.map(({icon:Icon,name,href})=><Link key={name} href={href} target="_blank" rel="noopener noreferrer" aria-label={"Abrir "+name} title={name} className={iconStyles}><Icon aria-hidden="true" /></Link>)}
+  </nav>
 }
-
-export default Socials
