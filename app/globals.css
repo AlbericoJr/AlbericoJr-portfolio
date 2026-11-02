@@ -2,24 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
-  body{
-    @apply font-primary bg-primary text-white leading-loose;
-  }
-  .h1{
-    @apply text-[48px] xl:text-[80px] leading-[1.1] font-semibold;
-  }
-  .h2{
-    @apply text-[36px] xl:text-[48px] leading-[1.1] font-semibold;
-  }
-  .h3{
-    @apply text-[20px] xl:text-[24px] leading-[1.1] font-semibold;
-  }
-  .text-outline{
-    -webkit-text-stroke: 1px #ffffff;
-  }
-  
-  .text-outline-hover{
-    -webkit-text-stroke: 1px #00ff99
-  }
+@layer base {
+  :root { color-scheme: dark; }
+  html { scroll-behavior: smooth; }
+  body { @apply font-primary bg-primary text-white; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+  .h1 { @apply text-[44px] sm:text-[58px] xl:text-[80px] leading-[1.08] font-semibold tracking-[-0.055em]; }
+  .h2 { @apply text-[34px] xl:text-[48px] leading-[1.12] font-semibold tracking-[-0.04em]; }
+  .h3 { @apply text-[20px] xl:text-[24px] leading-[1.2] font-semibold; }
+  .text-outline { -webkit-text-stroke: 1px #ffffff; }
+  .text-outline-hover { -webkit-text-stroke: 1px #00ff99; }
+  :focus-visible { outline: 2px solid #00ff99; outline-offset: 4px; }
+  ::selection { background: #00ff99; color: #1c1c22; }
+}
+@layer components {
+  .site-shell { @apply container mx-auto px-4 sm:px-6; }
+  .section-heading { @apply text-3xl sm:text-4xl font-bold tracking-tight; }
+  .site-card { @apply rounded-2xl border border-white/10 bg-[#27272c] transition-colors hover:border-accent/40; }
+  .site-link { @apply inline-flex items-center justify-center rounded-xl bg-accent px-6 py-3 font-semibold text-primary transition-all hover:bg-accent-hover hover:-translate-y-0.5; }
+  .skip-link { @apply sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-md focus:bg-accent focus:px-4 focus:py-3 focus:text-primary; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
