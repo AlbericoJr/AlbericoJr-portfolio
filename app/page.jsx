@@ -21,5 +21,6 @@ export default function Page(){
     <div className="order-1 mx-auto lg:order-2"><Photo/></div>
   </section>
   <Stats/>
+  <section aria-labelledby="devblog-title" className="site-shell pb-14"><div className="site-card flex flex-col items-start gap-4 p-6 sm:flex-row sm:items-center sm:justify-between"><div><p className="text-sm text-accent">DevBlog</p><h2 id="devblog-title" className="h3 my-2">Conhecimento, código e experiências.</h2><p className="text-sm text-white/70">Artigos de tecnologia, tutoriais e aprendizados da minha jornada.</p></div><Link prefetch={false} href="/blog" className="site-link shrink-0">Ler artigos <FiArrowUpRight aria-hidden="true"/></Link></div></section>
  </main>
 }
