@@ -1,0 +1,2 @@
+# DevBlog
+O nome é definido em lib/blog.mjs. Para publicar, acrescente um objeto ao array posts com slug único, title, description, category, date (YYYY-MM-DD), published: true, featured (opcional) e sections: [{heading, text, code}]. Mantenha published: false durante a revisão. Não publique dados privados. A primeira versão não exige credenciais nem serviços externos. A integração Notion deverá usar acesso somente no servidor e uma base editorial dedicada, mediante aprovação. Execute npm run lint, npm test e npm run build antes de publicar.
