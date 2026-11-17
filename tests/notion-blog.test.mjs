@@ -47,3 +47,16 @@ test("integração simulada: consulta paginada e busca apenas do artigo solicita
  try{const posts=await getPosts();assert.equal(posts.length,1);assert.equal((await getArticle("primeiro-artigo",posts)).blocks[0].type,"heading_2");assert.equal(await getArticle("privado",posts),null);}
  finally{for(const [key,value] of [["NOTION_TOKEN",old.token],["NOTION_DATA_SOURCE_ID",old.id]]){if(value===undefined)delete process.env[key];else process.env[key]=value;}}
 });
+
+test("falha transitória de rede permite nova tentativa",async t=>{
+ const oldToken=process.env.NOTION_TOKEN,oldId=process.env.NOTION_DATA_SOURCE_ID;
+ process.env.NOTION_TOKEN="test-only";process.env.NOTION_DATA_SOURCE_ID="00000000-0000-0000-0000-000000000001";
+ let attempts=0;
+ t.mock.method(globalThis,"fetch",async (_url,opts)=>{
+  assert.equal(opts.redirect,"error");
+  if(++attempts===1)throw new TypeError("fetch failed");
+  return Response.json({results:[row()],has_more:false});
+ });
+ try{assert.equal((await getPosts()).length,1);assert.equal(attempts,2);}
+ finally{for(const [key,value] of [["NOTION_TOKEN",oldToken],["NOTION_DATA_SOURCE_ID",oldId]]){if(value===undefined)delete process.env[key];else process.env[key]=value;}}
+});

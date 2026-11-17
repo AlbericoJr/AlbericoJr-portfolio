@@ -17,7 +17,7 @@ export default function Work(){
    <div className="mt-7 grid gap-7 md:grid-cols-2 xl:grid-cols-3">
     {visible.map(p=><article key={p.slug} className="site-card group flex flex-col overflow-hidden">
       <div className="relative flex h-56 items-center justify-center overflow-hidden bg-gradient-to-br from-[#393a43] to-[#18181e]">
-       {p.image?<Image src={p.image} alt={"Captura do projeto "+p.title} fill sizes="(max-width:768px) 100vw,(max-width:1280px) 50vw,33vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"/>:<span className="text-4xl font-extrabold tracking-tight text-accent">Planej.ai</span>}
+       {p.image?<Image src={p.image} alt={"Captura do projeto "+p.title} fill sizes="(max-width:768px) 100vw,(max-width:1280px) 50vw,33vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"/>:<span className="text-4xl font-extrabold tracking-tight text-accent">{p.title}</span>}
       </div>
       <div className="flex flex-1 flex-col p-6"><div className="flex items-center justify-between gap-2"><span className="text-xs uppercase tracking-widest text-accent">{p.role}</span>{p.featured&&<span className="text-xs text-white/50">Destaque</span>}</div>
       <h2 className="mt-3 text-2xl font-bold">{p.title}</h2><p className="mt-3 flex-1 text-sm leading-7 text-white/65">{p.description}</p>

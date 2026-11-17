@@ -77,3 +77,28 @@ test("navegação mobile fecha corretamente",async({page,isMobile})=>{
  await expect(page).toHaveURL(/\/work$/)
  await expect(page.getByRole("navigation",{name:"Navegação mobile"})).toHaveCount(0)
 })
+
+test("DevBlog: navegação, pesquisa, filtros e RSS",async({page,request})=>{
+ const errors=[];page.on("pageerror",e=>errors.push(e.message));
+ await page.goto("/");
+ await page.getByRole("link",{name:"Ler artigos",exact:true}).click();
+ await expect(page).toHaveURL(/\/blog$/);
+ await expect(page.getByRole("heading",{level:1})).toContainText(/Compartilhando conhecimento/);
+ await expect(page.getByRole("searchbox",{name:"Pesquisar artigos"})).toBeVisible();
+ await page.getByRole("button",{name:"Mobile",exact:true}).click();
+ await expect(page.getByRole("button",{name:"Mobile",exact:true})).toHaveAttribute("aria-pressed","true");
+ await page.getByRole("searchbox",{name:"Pesquisar artigos"}).fill("termo-sem-correspondencia");
+ await expect(page.getByText(/0 artigo\(s\)/)).toBeVisible();
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth)).toBeLessThanOrEqual(2);
+ const rss=await request.get("/blog/rss.xml");
+ expect(rss.ok()).toBeTruthy();
+ expect(rss.headers()["content-type"]).toContain("application/rss+xml");
+ expect(await rss.text()).toContain("<rss");
+ expect(errors).toEqual([]);
+});
+test("cabeçalhos básicos de segurança",async({request})=>{
+ const response=await request.get("/");
+ expect(response.headers()["x-content-type-options"]).toBe("nosniff");
+ expect(response.headers()["x-frame-options"]).toBe("DENY");
+ expect(response.headers()["x-powered-by"]).toBeUndefined();
+});
