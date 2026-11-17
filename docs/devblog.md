@@ -1,5 +1,23 @@
 # DevBlog
-O nome é definido em lib/blog.mjs. Para publicar, acrescente um objeto ao array posts com slug único, title, description, category, date (YYYY-MM-DD), published: true, featured (opcional) e sections: [{heading, text, code}]. Mantenha published: false durante a revisão. Não publique dados privados. A primeira versão não exige credenciais nem serviços externos. A integração Notion deverá usar acesso somente no servidor e uma base editorial dedicada, mediante aprovação. Execute npm run lint, npm test e npm run build antes de publicar.
 
-## Notion CMS
-Create a read-only internal integration at https://www.notion.so/my-integrations and grant access only to the DevBlog database. Set NOTION_TOKEN and NOTION_DATA_SOURCE_ID (41b468ba-c2c7-817e-a178-000b322f1c1b) in server environment variables on Vercel; never prefix token with NEXT_PUBLIC_. Set Status to Publicado and provide a unique slug, category and publication date. Supported content: top-level headings, paragraphs, lists, quotes and code. Covers use the first file in Capa or the Notion page cover, with automatic category artwork if missing or unavailable. Signed Notion URLs expire; reload to fetch a fresh URL. Use only images intended for public display. Nested blocks and rich formatting are not yet supported. CMS failures are surfaced rather than silently exposing drafts. Test in preview before merging. Supabase, newsletter and views are deferred by user decision. Categories and tags are read from published articles.
+O CMS é a base [DevBlog](https://app.notion.com/p/41b468bac2c7819bb6fed5be19d639bb). O nome do blog está em lib/blog.mjs.
+
+## Publicação
+
+1. Crie um artigo na base. Preencha Título, Slug único (letras minúsculas ASCII, números e hífens), Descrição, Categoria, Autor, Tags e Data de publicação.
+2. Envie uma imagem 16:9 pela propriedade Capa. Se estiver vazia, usa-se a capa da página; se indisponível, uma arte automática.
+3. Escreva no corpo da página: títulos, parágrafos, negrito, itálico, sublinhado, listas aninhadas, citações, callouts, toggles, tarefas, tabelas, imagens e código. Links inseguros e blocos não suportados são ignorados.
+4. Revise o artigo e marque Status como Publicado. Datas futuras, lixeira, arquivos, rascunhos e slugs inválidos ou duplicados não são exibidos.
+5. Confira /blog e /blog/<slug>. O RSS (/blog/rss.xml) e sitemap (/sitemap.xml) incluem as publicações elegíveis. Para retirar um artigo, volte o Status para Rascunho.
+
+## Configuração e segurança
+
+Integração interna Notion somente para leitura, conectada à base editorial (não ao restante do workspace). Variáveis de servidor na Vercel: NOTION_TOKEN e NOTION_DATA_SOURCE_ID. ID da fonte: 41b468ba-c2c7-817e-a178-000b322f1c1b. Nunca use NEXT_PUBLIC_ para o token. Não envie credenciais ao GitHub. O usuário informou que configurou as variáveis na Vercel; a conexão precisa ser verificada em execução. Sem as duas variáveis, o catálogo local é usado apenas como alternativa de desenvolvimento; configuração parcial causa erro explícito.
+
+As consultas são feitas sem cache persistente. URLs assinadas de mídia Notion expiram; uma nova navegação/recarregamento solicita URLs novas. Não existe proxy de imagens de origem arbitrária. Imagens externas são solicitadas diretamente pelo navegador, sem referrer. Use apenas mídias públicas autorizadas. Para compartilhamento social, o metadado usa uma imagem estável do portfólio, não uma URL temporária. Nunca publique informações privadas.
+
+## Validação
+
+Node conforme .nvmrc, npm ci, npm run lint, npm test, npm run build. Os testes mockados cobrem regras de publicação, capas, links, blocos e paginação; não substituem a validação com Notion/Vercel. Verifique também a página vazia, pesquisa, filtros, leitura no celular, erros de API, feed, sitemap e um artigo autorizado real com imagem. Os rascunhos existentes são preservados até revisão pelo autor.
+
+Supabase, newsletter e contagem de visualizações estão expressamente adiados.
