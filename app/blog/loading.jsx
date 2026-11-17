@@ -1,0 +1,1 @@
+export default function Loading(){return <main id="conteudo" className="site-shell py-16" aria-busy="true"><p role="status" className="text-accent">Carregando artigos...</p><div aria-hidden="true" className="mt-8 grid gap-4 md:grid-cols-3">{[1,2,3].map(i=><div key={i} className="site-card h-56 animate-pulse"/>)}</div></main>}
