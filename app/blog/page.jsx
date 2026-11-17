@@ -1,0 +1,6 @@
+import {blogName,publishedPosts,categories,readingTime} from "@/lib/blog.mjs";
+import BlogList from "@/components/BlogList";
+import {BookOpen,Rss} from "lucide-react";
+import Link from "next/link";
+export const metadata={title:blogName,description:"Artigos sobre programação, tecnologia, carreira e experiências de desenvolvimento.",alternates:{canonical:"/blog",types:{"application/rss+xml":"/blog/rss.xml"}},openGraph:{title:blogName,description:"Conhecimento, código e experiências.",url:"/blog"}};
+export default function Blog(){return <main id="conteudo" className="site-shell py-12 sm:py-20 portfolio-page-enter"><section className="mb-12 max-w-3xl"><p className="flex items-center gap-2 text-accent"><BookOpen size={20} aria-hidden="true"/> {blogName}</p><h1 className="h2 my-5">Compartilhando conhecimento, <span className="text-accent">código e experiências.</span></h1><p className="text-white/70">Desenvolvimento web e mobile, inteligência artificial, carreira e aprendizados na tecnologia.</p><Link href="/blog/rss.xml" className="mt-5 inline-flex items-center gap-2 text-accent"><Rss size={18}/> Feed RSS</Link></section><BlogList categories={categories} posts={publishedPosts().map(p=>({slug:p.slug,title:p.title,description:p.description,category:p.category,date:p.date,minutes:readingTime(p),featured:p.featured===true}))}/></main>}
