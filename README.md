@@ -15,7 +15,7 @@ Portfólio profissional de **desenvolvimento Front-end e Mobile**, com projetos 
 
 ## Tecnologias
 
-**Next.js 16.4.3**, **React 19**, **Node.js 24 LTS**, Tailwind CSS, React Icons, Radix UI e Framer Motion. Aplicação responsiva com suporte a `prefers-reduced-motion`.
+**Next.js 16.4.5**, **React 19**, **Node.js 24 LTS**, Tailwind CSS, React Icons, Radix UI e Framer Motion. Aplicação responsiva com suporte a `prefers-reduced-motion`.
 
 ## Desenvolvimento local
 
@@ -43,7 +43,7 @@ npm run build
 - Os scripts executam ESLint 9, testes Node.js e build do Next.js via GitHub Actions.
 - O Dependabot verifica dependências e workflows semanalmente.
 - Arquivos `.env` e `.env.*` são ignorados no Git (exceto `.env.example`).
-- A auditoria automatizada agora bloqueia alertas de severidade **moderada ou superior** nas dependências de produção. Reclassificamos `tailwindcss-animate` como dependência de desenvolvimento, o que retirou as bibliotecas de build (`tailwindcss`, `sucrase`, `glob`, `minimatch`) do conjunto de dependências de produção. A auditoria anterior passou após a alteração, mas o CI de 17/11/2026 apontou vulnerabilidades moderadas no Next.js. Atualize Next.js e eslint-config-next em conjunto, regenerando o lockfile com npm antes de publicar. Dependências de desenvolvimento ainda exigem acompanhamento contínuo. Antes do merge, revisar resultados do CI e a prévia da Vercel.
+- A auditoria automatizada agora bloqueia alertas de severidade **moderada ou superior** nas dependências de produção. Reclassificamos `tailwindcss-animate` como dependência de desenvolvimento, o que retirou as bibliotecas de build (`tailwindcss`, `sucrase`, `glob`, `minimatch`) do conjunto de dependências de produção. A auditoria anterior passou após a alteração, mas o CI de 17/11/2026 apontou vulnerabilidades moderadas no Next.js. A revisão adotou Next.js 16.4.5 com o lockfile existente do Dependabot (#11); confira o novo npm audit antes de publicar. Atualizações adicionais devem incluir lockfile regenerado com npm. Dependências de desenvolvimento ainda exigem acompanhamento contínuo. Antes do merge, revisar resultados do CI e a prévia da Vercel.
 
 ## Sobre o contato
 
