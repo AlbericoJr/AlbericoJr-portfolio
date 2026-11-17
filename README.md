@@ -10,6 +10,7 @@ Portfólio profissional de **desenvolvimento Front-end e Mobile**, com projetos 
 - **Projetos:** galeria com filtros Web, Mobile e Estudos, páginas individuais com resumos técnicos e links para repositórios/demonstrações.
 - **Serviços:** desenvolvimento web, mobile, interfaces e manutenção.
 - **Experiência:** trajetória, formação acadêmica e competências.
+- **DevBlog:** artigos gerenciados por Notion, pesquisa, categorias e RSS. Consulte [o guia editorial](docs/devblog.md).
 - **Contato:** formulário Formspree com validação, estados de sucesso/erro e aviso de privacidade.
 
 ## Tecnologias
@@ -42,7 +43,7 @@ npm run build
 - Os scripts executam ESLint 9, testes Node.js e build do Next.js via GitHub Actions.
 - O Dependabot verifica dependências e workflows semanalmente.
 - Arquivos `.env` e `.env.*` são ignorados no Git (exceto `.env.example`).
-- A auditoria automatizada agora bloqueia alertas de severidade **moderada ou superior** nas dependências de produção. Reclassificamos `tailwindcss-animate` como dependência de desenvolvimento, o que retirou as bibliotecas de build (`tailwindcss`, `sucrase`, `glob`, `minimatch`) do conjunto de dependências de produção. O teste de auditoria passou após a alteração. Dependências de desenvolvimento ainda exigem acompanhamento contínuo. Antes do merge, revisar resultados do CI e a prévia da Vercel.
+- A auditoria automatizada agora bloqueia alertas de severidade **moderada ou superior** nas dependências de produção. Reclassificamos `tailwindcss-animate` como dependência de desenvolvimento, o que retirou as bibliotecas de build (`tailwindcss`, `sucrase`, `glob`, `minimatch`) do conjunto de dependências de produção. A auditoria anterior passou após a alteração, mas o CI de 17/11/2026 apontou vulnerabilidades moderadas no Next.js. Atualize Next.js e eslint-config-next em conjunto, regenerando o lockfile com npm antes de publicar. Dependências de desenvolvimento ainda exigem acompanhamento contínuo. Antes do merge, revisar resultados do CI e a prévia da Vercel.
 
 ## Sobre o contato
 
@@ -65,7 +66,7 @@ Albérico Júnior — [LinkedIn](https://www.linkedin.com/in/alberico-junior/) �
 
 ## Verificação de qualidade visual
 
-Um segundo workflow executa Playwright em navegadores e resoluções diferentes, capturando screenshots e publicando relatórios. O Lighthouse mede a versão de produção compilada em um servidor local no runner. Esses testes não provam a entrega real de e-mails pelo Formspree nem validam dados pessoais do currículo.
+Um segundo workflow executa Playwright em navegadores e resoluções diferentes, capturando screenshots e publicando relatórios. O Lighthouse mede a versão de produção compilada em um servidor local no runner. A suíte também inclui as rotas do DevBlog sem credenciais reais e cabeçalhos HTTP. Esses testes não provam a entrega real de e-mails pelo Formspree nem validam dados pessoais do currículo.
 
 ## Estudos de caso
 
