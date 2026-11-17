@@ -9,11 +9,12 @@ function ContactForm(){
  const [status,setStatus]=useState({kind:"idle",message:""})
  async function submit(event){
   event.preventDefault()
+  if(status.kind==="loading")return
   const form=event.currentTarget
   if(!form.reportValidity())return
   setStatus({kind:"loading",message:"Enviando sua mensagem..."})
   try{
-   const response=await fetch(endpoint,{method:"POST",body:new FormData(form),headers:{Accept:"application/json"}})
+   const response=await fetch(endpoint,{method:"POST",body:new FormData(form),headers:{Accept:"application/json"},signal:AbortSignal.timeout(15000)})
    if(!response.ok)throw new Error("Erro no envio")
    form.reset()
    setStatus({kind:"success",message:"Mensagem enviada! Obrigado pelo contato."})
