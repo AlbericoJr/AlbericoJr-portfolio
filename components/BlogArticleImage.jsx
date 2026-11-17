@@ -1,0 +1,3 @@
+"use client";
+import {useState} from "react";
+export default function BlogArticleImage({src,caption}){const [failed,setFailed]=useState(null);return <figure className="my-6">{failed===src?<p className="site-card p-4 text-sm">Imagem indisponível. Atualize a página para tentar novamente.</p>:/* eslint-disable-next-line @next/next/no-img-element -- Notion signed URLs are dynamic; do not proxy arbitrary hosts. */ <img src={src} alt={caption||"Imagem do artigo"} loading="lazy" referrerPolicy="no-referrer" onError={()=>setFailed(src)} className="mx-auto max-h-[620px] max-w-full rounded-xl object-contain"/>}{caption&&<figcaption className="mt-2 text-center text-sm text-white/60">{caption}</figcaption>}</figure>}
