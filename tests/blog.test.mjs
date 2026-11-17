@@ -1,0 +1,3 @@
+import test from "node:test";import assert from "node:assert/strict";import {posts,publishedPosts,findPost,readingTime,categories} from "../lib/blog.mjs";
+test("slugs únicos e categorias válidas",()=>{assert.equal(new Set(posts.map(p=>p.slug)).size,posts.length);for(const p of posts){assert.match(p.slug,/^[a-z0-9-]+$/);assert.ok(categories.includes(p.category));assert.match(p.date,/^\d{4}-\d{2}-\d{2}$/)}});
+test("apenas artigos publicados",()=>{assert.ok(publishedPosts().every(p=>p.published===true));assert.equal(findPost("inexistente"),undefined);assert.equal(readingTime({sections:[{text:"Olá mundo"}]}),1)});

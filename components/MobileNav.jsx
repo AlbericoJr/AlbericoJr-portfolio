@@ -4,7 +4,8 @@ import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from 
 import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { CiMenuFries } from "react-icons/ci"
-const links=[{name:"Início",path:"/"},{name:"Serviços",path:"/services"},{name:"Experiência",path:"/resume"},{name:"Projetos",path:"/work"},{name:"Contato",path:"/contact"}]
+import {blogName} from "@/lib/blog.mjs"
+const links=[{name:"Início",path:"/"},{name:"Serviços",path:"/services"},{name:"Experiência",path:"/resume"},{name:"Projetos",path:"/work"},{name:blogName,path:"/blog"},{name:"Contato",path:"/contact"}]
 export default function MobileNav() {
   const pathname=usePathname()
   const [open,setOpen]=useState(false)
@@ -14,7 +15,7 @@ export default function MobileNav() {
       <SheetTitle className="mt-14 text-center text-2xl text-white">Albérico <span className="text-accent">Jr.</span></SheetTitle>
       <SheetDescription className="text-center text-white/60">Navegação do portfólio</SheetDescription>
       <nav aria-label="Navegação mobile" className="mt-10 flex flex-col items-center gap-7">
-        {links.map(link=><Link prefetch={false} key={link.path} onClick={()=>setOpen(false)} href={link.path} aria-current={pathname===link.path?"page":undefined} className={(pathname===link.path?"border-b-2 border-accent text-accent":"text-white")+" capitalize text-lg hover:text-accent"}>{link.name}</Link>)}
+        {links.map(link=><Link prefetch={false} key={link.path} onClick={()=>setOpen(false)} href={link.path} aria-current={(pathname===link.path || (link.path!=="/" && pathname.startsWith(link.path+"/")))?"page":undefined} className={((pathname===link.path || (link.path!=="/" && pathname.startsWith(link.path+"/")))?"border-b-2 border-accent text-accent":"text-white")+" capitalize text-lg hover:text-accent"}>{link.name}</Link>)}
       </nav>
     </SheetContent>
   </Sheet>
