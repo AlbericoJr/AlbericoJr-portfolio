@@ -5,7 +5,7 @@ const pages=[
  {url:"/resume",title:/Experiência, formação e competências/i},
  {url:"/work",title:/Projetos e experiências/i},
  {url:"/contact",title:/Vamos criar algo juntos/i},
- {url:"/work/planejai",title:/Planej\.ai/i}
+ {url:"/work/vice-city",title:/Vice City After Hours/i}
 ]
 test("rotas, headings, idioma, viewport e screenshots",async({page},testInfo)=>{
  const errors=[]
@@ -28,10 +28,11 @@ test("filtros e páginas de detalhes dos projetos",async({page})=>{
  await expect(page.getByRole("heading",{name:"UpFit"})).toBeVisible()
  await expect(page.getByRole("heading",{name:"Nova"})).toHaveCount(0)
  await page.getByRole("button",{name:"Web",exact:true}).click()
- await expect(page.getByRole("heading",{name:"Planej.ai"})).toBeVisible()
- await page.getByRole("link",{name:/Ver detalhes do projeto Planej.ai/}).click()
- await expect(page).toHaveURL(/\/work\/planejai$/)
- await expect(page.getByRole("link",{name:/Ver código-fonte/})).toHaveAttribute("href",/github.com/)
+ await expect(page.getByRole("heading",{name:"Vice City After Hours"})).toBeVisible()
+ await page.getByRole("link",{name:/Ver detalhes do projeto Vice City After Hours/}).click()
+ await expect(page).toHaveURL(/\/work\/vice-city$/)
+ await expect(page.getByRole("link",{name:/Ver código-fonte/})).toHaveAttribute("href","https://github.com/AlbericoJr/Vice-city")
+ await expect(page.getByRole("link",{name:/Abrir demonstração/})).toHaveAttribute("href","https://albericojr.github.io/Vice-city/")
 })
 test("contato: envio simulado e falha",async({page})=>{
  await page.goto("/contact")

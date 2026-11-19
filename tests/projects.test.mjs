@@ -13,5 +13,14 @@ test("project slugs, titles and links are valid",()=>{
  }
 })
 test("featured projects include key web and mobile examples",()=>{
- for(const id of ["upfit","granago","planejai","nova","gym"])assert.ok(projects.some(p=>p.slug===id&&p.featured))
+ for(const id of ["upfit","granago","vice-city","nova","gym"])assert.ok(projects.some(p=>p.slug===id&&p.featured))
+})
+
+test("Vice City substitui Planej.ai com os links e imagem corretos",()=>{
+ const p=projects.find(p=>p.slug==="vice-city")
+ assert.equal(p.title,"Vice City After Hours")
+ assert.equal(p.github,"https://github.com/AlbericoJr/Vice-city")
+ assert.equal(p.live,"https://albericojr.github.io/Vice-city/")
+ assert.equal(p.image,"/assets/work/vice-city.webp")
+ assert.equal(projects.some(p=>p.slug==="planejai"),false)
 })
