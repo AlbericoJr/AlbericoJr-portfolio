@@ -103,3 +103,15 @@ test("cabeçalhos básicos de segurança",async({request})=>{
  expect(response.headers()["x-frame-options"]).toBe("DENY");
  expect(response.headers()["x-powered-by"]).toBeUndefined();
 });
+
+test("Finanças AI aparece no catálogo web e abre seus detalhes",async({page})=>{
+ await page.goto("/work")
+ await expect(page.getByRole("heading",{name:/Zingen/})).toHaveCount(0)
+ await page.getByRole("button",{name:"Web",exact:true}).click()
+ await expect(page.getByRole("heading",{name:"Finanças AI",exact:true})).toBeVisible()
+ await page.getByRole("link",{name:"Ver detalhes do projeto Finanças AI",exact:true}).click()
+ await expect(page).toHaveURL(/\/work\/financas-ai$/)
+ await expect(page.getByRole("heading",{level:1})).toHaveText("Finanças AI")
+ await expect(page.getByRole("link",{name:/Ver código-fonte/})).toHaveAttribute("href","https://github.com/AlbericoJr/financas-ai")
+ await expect(page.getByRole("link",{name:/Abrir demonstração/})).toHaveAttribute("href","https://financas-ai-theta.vercel.app")
+})
