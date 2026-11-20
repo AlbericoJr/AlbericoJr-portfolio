@@ -24,3 +24,13 @@ test("Vice City substitui Planej.ai com os links e imagem corretos",()=>{
  assert.equal(p.image,"/assets/work/vice-city.webp")
  assert.equal(projects.some(p=>p.slug==="planejai"),false)
 })
+
+test("Finanças AI substitui Zingen com os links e imagem corretos",()=>{
+ const p=projects.find(p=>p.slug==="financas-ai")
+ assert.equal(p.title,"Finanças AI")
+ assert.equal(p.category,"Web")
+ assert.equal(p.github,"https://github.com/AlbericoJr/financas-ai")
+ assert.equal(p.live,"https://financas-ai-theta.vercel.app")
+ assert.equal(p.image,"/assets/work/financas-ai.png")
+ assert.equal(projects.some(p=>p.slug==="zingen"),false)
+})
