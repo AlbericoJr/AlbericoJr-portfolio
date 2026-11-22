@@ -25,7 +25,7 @@ export default function CommentsAdmin({enabled}){
  const [authorized,setAuthorized]=useState(false);
  const [pending,setPending]=useState([]);
  const [approved,setApproved]=useState([]);
- const [loading,setLoading]=useState(true);
+ const [loading,setLoading]=useState(enabled);
  const [busy,setBusy]=useState(false);
  const [message,setMessage]=useState("");
 
@@ -38,7 +38,15 @@ export default function CommentsAdmin({enabled}){
    if(!e.message.includes("não autorizado"))setMessage(e.message);
   }finally{setLoading(false);}
  },[]);
- useEffect(()=>{if(enabled)refresh();else setLoading(false);},[enabled,refresh]);
+ useEffect(()=>{
+  if(!enabled)return;
+  const controller=new AbortController();
+  fetch("/api/admin/comments",{cache:"no-store",signal:controller.signal})
+   .then(getJson)
+   .then(data=>{setPending(data.pending);setApproved(data.approved);setAuthorized(true);setLoading(false);})
+   .catch(error=>{if(error.name!=="AbortError"){setAuthorized(false);setLoading(false);}});
+  return ()=>controller.abort();
+ },[enabled]);
 
  async function login(event){
   event.preventDefault();setBusy(true);setMessage("");
