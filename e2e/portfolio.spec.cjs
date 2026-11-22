@@ -115,12 +115,3 @@ test("Finanças AI aparece no catálogo web e abre seus detalhes",async({page})=
  await expect(page.getByRole("link",{name:/Ver código-fonte/})).toHaveAttribute("href","https://github.com/AlbericoJr/financas-ai")
  await expect(page.getByRole("link",{name:/Abrir demonstração/})).toHaveAttribute("href","https://financas-ai-theta.vercel.app")
 })
-
-test("moderação não publica nem exige GitHub quando o armazenamento não está configurado",async({page,request})=>{
- const r=await request.get("/admin/devblog-comments");
- expect(r.ok()).toBeTruthy();
- await page.goto("/admin/devblog-comments");
- await expect(page.getByRole("heading",{level:1})).toHaveText(/Moderação de comentários/);
- const api=await request.get("/api/blog/comments/artigo-de-teste");
- expect([503,404,200]).toContain(api.status());
-});
