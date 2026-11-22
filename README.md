@@ -10,7 +10,7 @@ Portfólio profissional de **desenvolvimento Front-end e Mobile**, com projetos 
 - **Projetos:** galeria com filtros Web, Mobile e Estudos, páginas individuais com resumos técnicos e links para repositórios/demonstrações.
 - **Serviços:** desenvolvimento web, mobile, interfaces e manutenção.
 - **Experiência:** trajetória, formação acadêmica e competências.
-- **DevBlog:** artigos gerenciados por Notion, pesquisa, categorias e RSS. Consulte [o guia editorial](docs/devblog.md).
+- **DevBlog:** artigos gerenciados por Notion, pesquisa, categorias e RSS. Consulte [o guia editorial](docs/devblog.md). Comentários anônimos opcionais com [moderação](docs/comments.md).
 - **Contato:** formulário Formspree com validação, estados de sucesso/erro e aviso de privacidade.
 
 ## Tecnologias
