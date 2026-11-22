@@ -30,7 +30,14 @@ export default function BlogComments({slug,siteKey}){
   finally{setLoading(false);}
  },[slug]);
 
- useEffect(()=>{load(0);},[load]);
+ useEffect(()=>{
+  const controller=new AbortController();
+  fetch("/api/blog/comments/"+encodeURIComponent(slug)+"?page=0",{cache:"no-store",signal:controller.signal})
+   .then(response=>{if(!response.ok)throw new Error("unavailable");return response.json();})
+   .then(data=>{setItems(data.comments);setHasMore(data.hasMore===true);setPage(0);setLoading(false);setError("");})
+   .catch(error=>{if(error.name!=="AbortError"){setError("Os comentários estão temporariamente indisponíveis.");setLoading(false);}});
+  return ()=>controller.abort();
+ },[slug]);
 
  async function submit(event){
   event.preventDefault();
