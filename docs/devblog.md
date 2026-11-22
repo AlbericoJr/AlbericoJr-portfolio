@@ -21,3 +21,20 @@ As consultas são feitas sem cache persistente. URLs assinadas de mídia Notion 
 Node conforme .nvmrc, npm ci, npm run lint, npm test, npm run build. Os testes mockados cobrem regras de publicação, capas, links, blocos e paginação; não substituem a validação com Notion/Vercel. Verifique também a página vazia, pesquisa, filtros, leitura no celular, erros de API, feed, sitemap e um artigo autorizado real com imagem. Os rascunhos existentes são preservados até revisão pelo autor.
 
 Supabase, newsletter e contagem de visualizações estão expressamente adiados.
+
+## Comentários em artigos (opcional)
+
+O DevBlog está preparado para o [giscus](https://giscus.app/pt), usando GitHub Discussions. Não há necessidade de Supabase, de tabela própria nem de tokens GitHub no site. Para proteger a privacidade do visitante, o script do serviço só é carregado quando ele clica em **Carregar comentários**. O leitor precisa entrar no GitHub para escrever; comentários podem ser moderados diretamente nas Discussions.
+
+**Ativação manual pelo proprietário** (alterações na configuração do GitHub exigem sua ação):
+
+1. No repositório público [AlbericoJr-portfolio](https://github.com/AlbericoJr/AlbericoJr-portfolio), ative **Settings > General > Features > Discussions**.
+2. Instale o [GitHub App do giscus](https://github.com/apps/giscus) apenas nesse repositório, concedendo somente as permissões apresentadas e necessárias.
+3. Crie ou escolha uma categoria de Discussions adequada aos comentários (por exemplo, “Comentários”).
+4. Abra [giscus.app/pt](https://giscus.app/pt), informe **AlbericoJr/AlbericoJr-portfolio**, escolha a categoria e o mapeamento **pathname** (caminho da página). Confirme o ID da categoria gerado; o ID público do repositório é **R_kgDOMgNY0A**.
+5. Na Vercel, configure estas variáveis públicas em **Production** (e em Preview, se for testar a prévia): `NEXT_PUBLIC_GISCUS_CATEGORY` = nome exato da categoria; `NEXT_PUBLIC_GISCUS_CATEGORY_ID` = ID da categoria, iniciado em `DIC_`. **Não são segredos**.
+6. Faça redeploy da aplicação. Visite um artigo em `/blog/<slug>`, clique em **Carregar comentários**, verifique a autenticação via GitHub e teste um comentário. Modere a discussão no GitHub.
+
+A seção fica **oculta** até que as duas variáveis públicas sejam válidas. Ela aparece apenas nas páginas individuais dos artigos existentes, não na página inicial do blog. A associação é pelo caminho `/blog/<slug>`: mudar o slug depois de receber comentários pode separar o tópico antigo; evite alterações de slug ou planeje a migração. Se desativar as variáveis, a seção desaparece sem apagar discussões já criadas no GitHub.
+
+**Importante:** usuários sem conta GitHub não poderão publicar comentários. Se o público-alvo exigir comentários sem GitHub, será necessário escolher outro provedor e revisar privacidade, moderação e custos antes de implementá-lo. Este recurso não é newsletter nem contagem de visualizações.
