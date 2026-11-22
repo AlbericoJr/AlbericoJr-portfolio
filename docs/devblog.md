@@ -21,3 +21,9 @@ As consultas são feitas sem cache persistente. URLs assinadas de mídia Notion 
 Node conforme .nvmrc, npm ci, npm run lint, npm test, npm run build. Os testes mockados cobrem regras de publicação, capas, links, blocos e paginação; não substituem a validação com Notion/Vercel. Verifique também a página vazia, pesquisa, filtros, leitura no celular, erros de API, feed, sitemap e um artigo autorizado real com imagem. Os rascunhos existentes são preservados até revisão pelo autor.
 
 Supabase, newsletter e contagem de visualizações estão expressamente adiados.
+
+## Comentários anônimos
+
+O projeto possui um módulo opcional de comentários por artigo, sem conta, nome ou e-mail. Os comentários ficam **pendentes** até aprovação na área [Moderação do DevBlog](https://albericojr-portfolio-xi.vercel.app/admin/devblog-comments). O armazenamento é Upstash Redis, separado do Notion; a segurança antibot utiliza Cloudflare Turnstile. **Não foi criado nem contratado um serviço de armazenamento nesta implementação.** A interface só aparece depois que o proprietário configurar as credenciais e habilitar o recurso na Vercel.
+
+Passo a passo, variáveis de ambiente, segurança e moderação: **[docs/comments.md](comments.md)**. Não é necessária conta GitHub para os leitores, nem newsletter, Supabase ou contagem de visualizações.
